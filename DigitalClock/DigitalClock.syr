@@ -1,0 +1,476 @@
+Release 14.7 - xst P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.12 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.12 secs
+ 
+--> Reading design: DigitalClock.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Parsing
+  3) HDL Elaboration
+  4) HDL Synthesis
+       4.1) HDL Synthesis Report
+  5) Advanced HDL Synthesis
+       5.1) Advanced HDL Synthesis Report
+  6) Low Level Synthesis
+  7) Partition Report
+  8) Design Summary
+       8.1) Primitive and Black Box Usage
+       8.2) Device utilization summary
+       8.3) Partition Resource Summary
+       8.4) Timing Report
+            8.4.1) Clock Information
+            8.4.2) Asynchronous Control Signals Information
+            8.4.3) Timing Summary
+            8.4.4) Timing Details
+            8.4.5) Cross Clock Domains Report
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "DigitalClock.prj"
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "DigitalClock"
+Output Format                      : NGC
+Target Device                      : xc6slx9-3-tqg144
+
+---- Source Options
+Top Module Name                    : DigitalClock
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Shift Register Extraction          : YES
+ROM Style                          : Auto
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Shift Register Minimum Size        : 2
+Use DSP Block                      : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+LUT Combining                      : Auto
+Reduce Control Sets                : Auto
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 16
+Register Duplication               : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Auto
+Use Synchronous Set                : Auto
+Use Synchronous Reset              : Auto
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Power Reduction                    : NO
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+DSP48 Utilization Ratio            : 100
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Parsing                                  *
+=========================================================================
+Analyzing Verilog file "C:\Users\ggarcia4\Desktop\DigitalClock\DigitalClock.v" into library work
+Parsing module <DigitalClock>.
+
+=========================================================================
+*                            HDL Elaboration                            *
+=========================================================================
+
+Elaborating module <DigitalClock>.
+WARNING:HDLCompiler:413 - "C:\Users\ggarcia4\Desktop\DigitalClock\DigitalClock.v" Line 74: Result of 7-bit expression is truncated to fit in 6-bit target.
+WARNING:HDLCompiler:413 - "C:\Users\ggarcia4\Desktop\DigitalClock\DigitalClock.v" Line 77: Result of 7-bit expression is truncated to fit in 6-bit target.
+WARNING:HDLCompiler:413 - "C:\Users\ggarcia4\Desktop\DigitalClock\DigitalClock.v" Line 80: Result of 7-bit expression is truncated to fit in 6-bit target.
+WARNING:HDLCompiler:413 - "C:\Users\ggarcia4\Desktop\DigitalClock\DigitalClock.v" Line 181: Result of 8-bit expression is truncated to fit in 6-bit target.
+WARNING:HDLCompiler:413 - "C:\Users\ggarcia4\Desktop\DigitalClock\DigitalClock.v" Line 182: Result of 8-bit expression is truncated to fit in 6-bit target.
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Synthesizing Unit <DigitalClock>.
+    Related source file is "C:\Users\ggarcia4\Desktop\DigitalClock\DigitalClock.v".
+        HALFSEC = 24999999
+        SECOND = 49999999
+        ZERO = 8'b11000000
+        ONE = 8'b11111001
+        TWO = 8'b10100100
+        THREE = 8'b10110000
+        FOUR = 8'b10011001
+        FIVE = 8'b10010010
+        SIX = 8'b10000010
+        SEVEN = 8'b11111000
+        EIGHT = 8'b10000000
+        NINE = 8'b10011000
+        NORMALMODE = 2'b00
+        SECONDMODE = 2'b01
+        MINUTEMODE = 2'b10
+        HOURMODE = 2'b11
+        FIRSTDIGIT = 3'b000
+        SECONDDIGIT = 3'b001
+        THIRDDIGIT = 3'b010
+        FOURTHDIGIT = 3'b011
+        SETTIME = 3'b100
+WARNING:Xst:647 - Input <IO_DSW<7:4>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 32-bit register for signal <secTicks>.
+    Found 4-bit register for signal <tempBuffer1>.
+    Found 4-bit register for signal <IO_SSEGD>.
+    Found 8-bit register for signal <IO_SSEG>.
+    Found 4-bit register for signal <selectDigit>.
+    Found 4-bit register for signal <tempBuffer2>.
+    Found 4-bit register for signal <tempBuffer3>.
+    Found 4-bit register for signal <tempBuffer4>.
+    Found 1-bit register for signal <timeSetup>.
+    Found finite state machine <FSM_0> for signal <selectDigit>.
+    -----------------------------------------------------------------------
+    | States             | 5                                              |
+    | Transitions        | 13                                             |
+    | Inputs             | 5                                              |
+    | Outputs            | 7                                              |
+    | Clock              | M_CLOCK (rising_edge)                          |
+    | Power Up State     | 0000                                           |
+    | Encoding           | auto                                           |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 32-bit adder for signal <secTicks[31]_GND_1_o_add_11_OUT> created at line 83.
+    Found 4-bit comparator greater for signal <GND_1_o_IO_DSW[3]_LessThan_23_o> created at line 92
+    Found 4-bit comparator greater for signal <GND_1_o_IO_DSW[3]_LessThan_28_o> created at line 115
+    Found 4-bit comparator greater for signal <GND_1_o_IO_DSW[3]_LessThan_33_o> created at line 137
+    Found 4-bit comparator greater for signal <PWR_1_o_IO_DSW[3]_LessThan_38_o> created at line 160
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred  61 D-type flip-flop(s).
+	inferred   4 Comparator(s).
+	inferred  26 Multiplexer(s).
+	inferred   1 Finite State Machine(s).
+Unit <DigitalClock> synthesized.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 1
+ 32-bit adder                                          : 1
+# Registers                                            : 8
+ 1-bit register                                        : 1
+ 32-bit register                                       : 1
+ 4-bit register                                        : 5
+ 8-bit register                                        : 1
+# Comparators                                          : 4
+ 4-bit comparator greater                              : 4
+# Multiplexers                                         : 26
+ 1-bit 2-to-1 multiplexer                              : 4
+ 4-bit 2-to-1 multiplexer                              : 6
+ 8-bit 2-to-1 multiplexer                              : 16
+# FSMs                                                 : 1
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+WARNING:Xst:1710 - FF/Latch <tempBuffer4_0> (without init value) has a constant value of 1 in block <DigitalClock>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <tempBuffer4_3> (without init value) has a constant value of 1 in block <DigitalClock>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:2677 - Node <tempBuffer4_1> of sequential type is unconnected in block <DigitalClock>.
+WARNING:Xst:2677 - Node <tempBuffer4_2> of sequential type is unconnected in block <DigitalClock>.
+
+Synthesizing (advanced) Unit <DigitalClock>.
+The following registers are absorbed into counter <secTicks>: 1 register on signal <secTicks>.
+Unit <DigitalClock> synthesized (advanced).
+WARNING:Xst:2677 - Node <tempBuffer4_1> of sequential type is unconnected in block <DigitalClock>.
+WARNING:Xst:2677 - Node <tempBuffer4_2> of sequential type is unconnected in block <DigitalClock>.
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Counters                                             : 1
+ 32-bit up counter                                     : 1
+# Registers                                            : 27
+ Flip-Flops                                            : 27
+# Comparators                                          : 4
+ 4-bit comparator greater                              : 4
+# Multiplexers                                         : 26
+ 1-bit 2-to-1 multiplexer                              : 4
+ 4-bit 2-to-1 multiplexer                              : 6
+ 8-bit 2-to-1 multiplexer                              : 16
+# FSMs                                                 : 1
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+WARNING:Xst:1710 - FF/Latch <tempBuffer4_0> (without init value) has a constant value of 1 in block <DigitalClock>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <tempBuffer4_3> (without init value) has a constant value of 1 in block <DigitalClock>. This FF/Latch will be trimmed during the optimization process.
+Analyzing FSM <MFsm> for best encoding.
+Optimizing FSM <FSM_0> on signal <selectDigit[1:3]> with gray encoding.
+-------------------
+ State | Encoding
+-------------------
+ 0000  | 000
+ 0001  | 001
+ 0010  | 011
+ 0011  | 010
+ 0100  | 110
+-------------------
+WARNING:Xst:1710 - FF/Latch <IO_SSEG_7> (without init value) has a constant value of 1 in block <DigitalClock>. This FF/Latch will be trimmed during the optimization process.
+
+Optimizing unit <DigitalClock> ...
+WARNING:Xst:1710 - FF/Latch <tempBuffer2_3> (without init value) has a constant value of 0 in block <DigitalClock>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <tempBuffer2_3> (without init value) has a constant value of 0 in block <DigitalClock>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <tempBuffer1_2> (without init value) has a constant value of 0 in block <DigitalClock>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <tempBuffer1_3> (without init value) has a constant value of 0 in block <DigitalClock>. This FF/Latch will be trimmed during the optimization process.
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block DigitalClock, actual ratio is 1.
+FlipFlop selectDigit_FSM_FFd2 has been replicated 1 time(s)
+FlipFlop selectDigit_FSM_FFd3 has been replicated 1 time(s)
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 58
+ Flip-Flops                                            : 58
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Design Summary                             *
+=========================================================================
+
+Top Level Output File Name         : DigitalClock.ngc
+
+Primitive and Black Box Usage:
+------------------------------
+# BELS                             : 162
+#      GND                         : 1
+#      INV                         : 1
+#      LUT1                        : 31
+#      LUT2                        : 7
+#      LUT3                        : 11
+#      LUT4                        : 8
+#      LUT5                        : 13
+#      LUT6                        : 25
+#      MUXCY                       : 31
+#      MUXF7                       : 1
+#      VCC                         : 1
+#      XORCY                       : 32
+# FlipFlops/Latches                : 58
+#      FD                          : 6
+#      FDE                         : 50
+#      FDRE                        : 1
+#      FDSE                        : 1
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 20
+#      IBUF                        : 8
+#      OBUF                        : 12
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 6slx9tqg144-3 
+
+
+Slice Logic Utilization: 
+ Number of Slice Registers:              58  out of  11440     0%  
+ Number of Slice LUTs:                   96  out of   5720     1%  
+    Number used as Logic:                96  out of   5720     1%  
+
+Slice Logic Distribution: 
+ Number of LUT Flip Flop pairs used:    100
+   Number with an unused Flip Flop:      42  out of    100    42%  
+   Number with an unused LUT:             4  out of    100     4%  
+   Number of fully used LUT-FF pairs:    54  out of    100    54%  
+   Number of unique control sets:         8
+
+IO Utilization: 
+ Number of IOs:                          34
+ Number of bonded IOBs:                  21  out of    102    20%  
+
+Specific Feature Utilization:
+ Number of BUFG/BUFGCTRLs:                1  out of     16     6%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+Timing Report
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+M_CLOCK                            | BUFGP                  | 58    |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -3
+
+   Minimum period: 4.385ns (Maximum Frequency: 228.035MHz)
+   Minimum input arrival time before clock: 4.121ns
+   Maximum output required time after clock: 3.701ns
+   Maximum combinational path delay: No path found
+
+Timing Details:
+---------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'M_CLOCK'
+  Clock period: 4.385ns (frequency: 228.035MHz)
+  Total number of paths / destination ports: 1988 / 107
+-------------------------------------------------------------------------
+Delay:               4.385ns (Levels of Logic = 2)
+  Source:            secTicks_6 (FF)
+  Destination:       secTicks_0 (FF)
+  Source Clock:      M_CLOCK rising
+  Destination Clock: M_CLOCK rising
+
+  Data Path: secTicks_6 to secTicks_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDE:C->Q              3   0.447   0.995  secTicks_6 (secTicks_6)
+     LUT5:I0->O            1   0.203   0.924  secTicks[31]_GND_1_o_equal_2_o_inv_SW0 (N4)
+     LUT6:I1->O           32   0.203   1.291  secTicks[31]_GND_1_o_equal_2_o_inv (secTicks[31]_GND_1_o_equal_2_o_inv)
+     FDE:CE                    0.322          secTicks_0
+    ----------------------------------------
+    Total                      4.385ns (1.175ns logic, 3.210ns route)
+                                       (26.8% logic, 73.2% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'M_CLOCK'
+  Total number of paths / destination ports: 49 / 21
+-------------------------------------------------------------------------
+Offset:              4.121ns (Levels of Logic = 3)
+  Source:            IO_DSW<2> (PAD)
+  Destination:       tempBuffer3_0 (FF)
+  Destination Clock: M_CLOCK rising
+
+  Data Path: IO_DSW<2> to tempBuffer3_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             8   1.222   0.907  IO_DSW_2_IBUF (IO_DSW_2_IBUF)
+     LUT2:I0->O            1   0.203   0.580  _n0325_inv_SW0 (N0)
+     LUT6:I5->O            4   0.205   0.683  _n0325_inv (_n0325_inv)
+     FDE:CE                    0.322          tempBuffer3_0
+    ----------------------------------------
+    Total                      4.121ns (1.952ns logic, 2.169ns route)
+                                       (47.4% logic, 52.6% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'M_CLOCK'
+  Total number of paths / destination ports: 11 / 11
+-------------------------------------------------------------------------
+Offset:              3.701ns (Levels of Logic = 1)
+  Source:            IO_SSEG_3 (FF)
+  Destination:       IO_SSEG<3> (PAD)
+  Source Clock:      M_CLOCK rising
+
+  Data Path: IO_SSEG_3 to IO_SSEG<3>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDE:C->Q              4   0.447   0.683  IO_SSEG_3 (IO_SSEG_3)
+     OBUF:I->O                 2.571          IO_SSEG_3_OBUF (IO_SSEG<3>)
+    ----------------------------------------
+    Total                      3.701ns (3.018ns logic, 0.683ns route)
+                                       (81.6% logic, 18.4% route)
+
+=========================================================================
+
+Cross Clock Domains Report:
+--------------------------
+
+Clock to Setup on destination clock M_CLOCK
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+M_CLOCK        |    4.385|         |         |         |
+---------------+---------+---------+---------+---------+
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 8.00 secs
+Total CPU time to Xst completion: 7.90 secs
+ 
+--> 
+
+Total memory usage is 256004 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :   19 (   0 filtered)
+Number of infos    :    0 (   0 filtered)
+
