@@ -16,7 +16,7 @@
 #NET	"IO_LED<1>"	LOC = P40;
 #NET	"IO_LED<0>"	LOC = P41;
 #====================================================
-# IO Board Display Segment a
+# IO Board Display Segment a  0 = ON, 1 = OFF
 NET	"IO_SSEG<0>" LOC = P102; #a
 NET	"IO_SSEG<1>" LOC = P105; #b
 NET	"IO_SSEG<2>" LOC = P101; #c
@@ -27,24 +27,24 @@ NET	"IO_SSEG<6>" LOC = P104; #g
 NET	"IO_SSEG<7>" LOC = P99;  #decimal point
 
 #====================================================
-# IO Board Seven Segment Digits
-NET	"IO_SSEGD<0>"	LOC = P92; 
-NET	"IO_SSEGD<1>"	LOC = P93;
-NET	"IO_SSEGD<2>"	LOC = P84;
-NET	"IO_SSEGD<3>"	LOC = P88;
+# IO Board Seven Segment Digits  0 = ON, 1 = OFF
+NET	"IO_SSEGD<0>"	LOC = P92; #[*][][][]
+NET	"IO_SSEGD<1>"	LOC = P93; #[][*][][]
+NET	"IO_SSEGD<2>"	LOC = P84; #[][][*][]
+NET	"IO_SSEGD<3>"	LOC = P88; #[][][][*]
 #====================================================
 # IO Board Seven Segment Display Colon
 #NET	"IO_SSEG_COL"	LOC = P87; 
 #====================================================
 # IO Board Pushbutton Switches 
-# Pushbutton Determines which Digit to Enable
+# Pushbutton Determines which Digit to Enable  , Depressed = 0
 NET	"IO_PB<0>"		LOC = P80	|  PULLUP; 
 NET	"IO_PB<1>"		LOC = P81	|  PULLUP; 
 NET	"IO_PB<2>"		LOC = P78	|  PULLUP;
 NET	"IO_PB<3>"		LOC = P79	|  PULLUP;
 
 #====================================================
-# IO Board Dip Switchs
+# IO Board Dip Switchs   ON = 0, OFF = 1
 NET	"IO_DSW<0>"		LOC = P55	|  PULLUP; 
 NET	"IO_DSW<1>"		LOC = P56	|  PULLUP;
 NET	"IO_DSW<2>"		LOC = P57	|  PULLUP;

@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2018-10-31T12:09:38</DateModified>
+  <DateModified>2018-11-03T05:23:14</DateModified>
   <ModuleName>DigitalClock</ModuleName>
   <SummaryTimeStamp>Unknown</SummaryTimeStamp>
-  <SavedFilePath>C:/Users/ggarcia4/Desktop/DigitalClock/iseconfig/DigitalClock.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>C:/Users/ggarcia4/Desktop/DigitalClock\</ImplementationReportsDirectory>
+  <SavedFilePath>/home/ise/XIlinxShare/Digital-Clock/DigitalClock/iseconfig/DigitalClock.xreport</SavedFilePath>
+  <ImplementationReportsDirectory>/home/ise/XIlinxShare/Digital-Clock/DigitalClock/</ImplementationReportsDirectory>
   <DateInitialized>2018-10-30T04:10:11</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>
