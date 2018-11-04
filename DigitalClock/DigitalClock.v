@@ -57,7 +57,7 @@ module DigitalClock(input M_CLOCK,
 	reg [3:0] selectDigit = FIRSTDIGIT;
 	
 	//First Time setup variable
-	reg timeSetup = 0;
+	reg timeSetup = 0;//Flag for first time setup
 	reg [3:0] hourUpper;
 	reg [3:0] hourLower;
 	reg [3:0] minuteUpper;
@@ -69,10 +69,10 @@ module DigitalClock(input M_CLOCK,
 	reg [3:0] minuteLowerTMP;
 	
 	//Time keeping registers
-	reg [5:0]     secondCounter = 0;
-	reg [5:0]     minuteCounter = 0;
-	reg [5:0]     hourCounter   = 0;
-	integer secTicks            = 0;	
+	reg [5:0]     secondCounter;
+	//reg [5:0]     minuteCounter = 0;
+	//reg [5:0]     hourCounter   = 0;
+	integer secTicks = 0;	
 	
 	//Display registers
 	reg [1:0] displayDigit = FIRSTDIGIT; 
@@ -82,14 +82,14 @@ module DigitalClock(input M_CLOCK,
 		if(secTicks == SECOND) begin
 		secTicks <= 0;
 			if(secondCounter > 60) begin
-				secondCounter <= 0;
-				if(minuteLower > 10) begin
+				secondCounter <= 1;
+				if(minuteLower > 9) begin
 				minuteLower <= 0;
-				if(minuteUpper > 6) begin
+				if(minuteUpper > 5) begin
 					minuteUpper <= 0;
-					if(hourLower > 5)begin
+					if(hourLower > 4)begin
 						hourLower <= 0;
-						if(hourUpper > 3) begin
+						if(hourUpper > 2) begin
 						hourUpper   <= 0;
 						hourLower   <= 0;
 						minuteLower <= 0;
@@ -105,7 +105,7 @@ module DigitalClock(input M_CLOCK,
 		end
 			else secondCounter <= secondCounter + 1;
 		end
-			else secTicks = secTicks + 1;
+			else secTicks <= secTicks + 1;
 	end
 	
 	//Clock Setup, do once on power or                             IMPLEMENT: when two buttons are pressed
@@ -113,6 +113,7 @@ module DigitalClock(input M_CLOCK,
 		if(timeSetup == 0) begin//Clock is not origionally set up
 			//Case statement for setting up each digit
 			case(selectDigit)
+			///////////////////////////////////////////////////////////
 			FIRSTDIGIT: begin //MAX value is 2
 			IO_SSEGD <= 4'b1110;                                  //MIGHT HAVE TO CHANGE THIS FOR THE OTHER ONES TOO
 			if(IO_DSW[3:0] > 2) begin
@@ -132,9 +133,9 @@ module DigitalClock(input M_CLOCK,
 					8:IO_SSEG = EIGHT;
 					9:IO_SSEG = NINE;
 				endcase
-				if(IO_PB[0]) selectDigit <= SECONDDIGIT;
-
+			if(IO_PB[0]) selectDigit <= SECONDDIGIT;
 			end
+			////////////////////////////////////////////////////////
 			SECONDDIGIT: begin//Max value is 4
 			IO_SSEGD <= 4'b1101;
 			if(IO_DSW[3:0] > 4) begin
@@ -154,8 +155,9 @@ module DigitalClock(input M_CLOCK,
 					8:IO_SSEG = EIGHT;
 					9:IO_SSEG = NINE;
 				endcase
-				if(IO_PB[1]) selectDigit <= THIRDDIGIT;
+			if(IO_PB[1]) selectDigit <= THIRDDIGIT;
 			end
+			///////////////////////////////////////////////
 			THIRDDIGIT: begin //MAX VALUE IS 5
 			IO_SSEGD <= 4'b1011;
 			if(IO_DSW[3:0] > 5) begin
@@ -177,6 +179,7 @@ module DigitalClock(input M_CLOCK,
 				endcase
 				if(IO_PB[2]) selectDigit <= FOURTHDIGIT;			
 			end
+			////////////////////////////////////////////////////
 			FOURTHDIGIT: begin// MAX VALUE IS 9
 			IO_SSEGD <= 4'b0111;
 			if(IO_DSW[3:0] > 9) begin
@@ -198,6 +201,7 @@ module DigitalClock(input M_CLOCK,
 				endcase
 				if(IO_PB[3]) selectDigit <= SETTIME;
 			end
+			//////////////////////////////////////////////////
 			SETTIME    : begin
 			hourUpper   <= hourUpperTMP;
 			hourLower   <= hourLowerTMP;
@@ -205,8 +209,8 @@ module DigitalClock(input M_CLOCK,
 			minuteLower <= minuteLowerTMP;
 			//Reset all time keeping registers
 			secondCounter <=0;
-			minuteCounter <=0;
-			hourCounter <=0;
+			//minuteCounter <=0;
+			//hourCounter <=0;
 			timeSetup <= 1;//Set up complete
 			end			
 			endcase
@@ -235,7 +239,11 @@ module DigitalClock(input M_CLOCK,
 				SECONDDIGIT:begin
 					IO_SSEGD <= 4'b1101;
 					case(hourLower)
-					
+					0: IO_SSEG <= ZERO;
+					1: IO_SSEG <= ONE;
+					2: IO_SSEG <= TWO;
+					3: IO_SSEG <= THREE;
+					4: IO_SSEG <= FOUR;
 					default: IO_SSEG <= 8'b00000000;//ERROR
 					endcase
 					displayDigit <= THIRDDIGIT;
@@ -243,7 +251,12 @@ module DigitalClock(input M_CLOCK,
 				THIRDDIGIT:begin
 					IO_SSEGD <= 4'b1011;
 					case(minuteUpper)
-					
+					0: IO_SSEG <= ZERO;
+					1: IO_SSEG <= ONE;
+					2: IO_SSEG <= TWO;
+					3: IO_SSEG <= THREE;
+					4: IO_SSEG <= FOUR;
+					5: IO_SSEG <= FIVE;
 					default: IO_SSEG <= 8'b00000000;//ERROR
 					endcase
 					displayDigit <= FOURTHDIGIT;
@@ -251,7 +264,16 @@ module DigitalClock(input M_CLOCK,
 				FOURTHDIGIT:begin
 					IO_SSEGD <= 4'b0111;
 					case(minuteLower)
-					
+					0: IO_SSEG <= ZERO;
+					1: IO_SSEG <= ONE;
+					2: IO_SSEG <= TWO;
+					3: IO_SSEG <= THREE;
+					4: IO_SSEG <= FOUR;
+					5: IO_SSEG <= FIVE;
+					6: IO_SSEG <= SIX;
+					7: IO_SSEG <= SEVEN;
+					8: IO_SSEG <= EIGHT;
+					9: IO_SSEG <= NINE;
 					default: IO_SSEG <= 8'b00000000;//ERROR
 					endcase
 					displayDigit <= FIRSTDIGIT;
