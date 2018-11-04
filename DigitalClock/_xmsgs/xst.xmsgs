@@ -5,31 +5,31 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
-<msg type="warning" file="HDLCompiler" num="872" delta="old" >"/home/ise/VMShare/Digital-Clock/DigitalClock/DigitalClock.v" Line 49: Using initial value of <arg fmt="%s" index="1">displayMode</arg> since it is never assigned
+<msg type="warning" file="HDLCompiler" num="872" delta="old" >"/home/ise/XIlinxShare/Digital-Clock/DigitalClock/DigitalClock.v" Line 49: Using initial value of <arg fmt="%s" index="1">displayMode</arg> since it is never assigned
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="413" delta="old" >"/home/ise/VMShare/Digital-Clock/DigitalClock/DigitalClock.v" Line 98: Result of <arg fmt="%d" index="1">5</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">4</arg>-bit target.
+<msg type="warning" file="HDLCompiler" num="413" delta="old" >"/home/ise/XIlinxShare/Digital-Clock/DigitalClock/DigitalClock.v" Line 98: Result of <arg fmt="%d" index="1">5</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">4</arg>-bit target.
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="413" delta="old" >"/home/ise/VMShare/Digital-Clock/DigitalClock/DigitalClock.v" Line 100: Result of <arg fmt="%d" index="1">5</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">4</arg>-bit target.
+<msg type="warning" file="HDLCompiler" num="413" delta="old" >"/home/ise/XIlinxShare/Digital-Clock/DigitalClock/DigitalClock.v" Line 100: Result of <arg fmt="%d" index="1">5</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">4</arg>-bit target.
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="413" delta="old" >"/home/ise/VMShare/Digital-Clock/DigitalClock/DigitalClock.v" Line 102: Result of <arg fmt="%d" index="1">5</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">4</arg>-bit target.
+<msg type="warning" file="HDLCompiler" num="413" delta="old" >"/home/ise/XIlinxShare/Digital-Clock/DigitalClock/DigitalClock.v" Line 102: Result of <arg fmt="%d" index="1">5</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">4</arg>-bit target.
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="413" delta="old" >"/home/ise/VMShare/Digital-Clock/DigitalClock/DigitalClock.v" Line 104: Result of <arg fmt="%d" index="1">5</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">4</arg>-bit target.
+<msg type="warning" file="HDLCompiler" num="413" delta="old" >"/home/ise/XIlinxShare/Digital-Clock/DigitalClock/DigitalClock.v" Line 104: Result of <arg fmt="%d" index="1">5</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">4</arg>-bit target.
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="413" delta="old" >"/home/ise/VMShare/Digital-Clock/DigitalClock/DigitalClock.v" Line 106: Result of <arg fmt="%d" index="1">7</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">6</arg>-bit target.
+<msg type="warning" file="HDLCompiler" num="413" delta="old" >"/home/ise/XIlinxShare/Digital-Clock/DigitalClock/DigitalClock.v" Line 106: Result of <arg fmt="%d" index="1">7</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">6</arg>-bit target.
 </msg>
 
-<msg type="error" file="HDLCompiler" num="1401" delta="old" >"/home/ise/VMShare/Digital-Clock/DigitalClock/DigitalClock.v" Line 112: Signal <arg fmt="%s" index="1">IO_SSEG[7]</arg> in unit <arg fmt="%s" index="2">DigitalClock</arg> is connected to following multiple drivers:
+<msg type="error" file="HDLCompiler" num="1401" delta="old" >"/home/ise/XIlinxShare/Digital-Clock/DigitalClock/DigitalClock.v" Line 112: Signal <arg fmt="%s" index="1">IO_SSEG[7]</arg> in unit <arg fmt="%s" index="2">DigitalClock</arg> is connected to following multiple drivers:
 </msg>
 
-<msg type="error" file="HDLCompiler" num="1401" delta="old" >"/home/ise/VMShare/Digital-Clock/DigitalClock/DigitalClock.v" Line 81: Signal <arg fmt="%s" index="1">hourUpper[3]</arg> in unit <arg fmt="%s" index="2">DigitalClock</arg> is connected to following multiple drivers:
+<msg type="error" file="HDLCompiler" num="1401" delta="old" >"/home/ise/XIlinxShare/Digital-Clock/DigitalClock/DigitalClock.v" Line 81: Signal <arg fmt="%s" index="1">hourUpper[3]</arg> in unit <arg fmt="%s" index="2">DigitalClock</arg> is connected to following multiple drivers:
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="1499" delta="old" >"/home/ise/VMShare/Digital-Clock/DigitalClock/DigitalClock.v" Line 21: Empty module &lt;<arg fmt="%s" index="1">DigitalClock</arg>&gt; remains a black box.
+<msg type="warning" file="HDLCompiler" num="1499" delta="old" >"/home/ise/XIlinxShare/Digital-Clock/DigitalClock/DigitalClock.v" Line 21: Empty module &lt;<arg fmt="%s" index="1">DigitalClock</arg>&gt; remains a black box.
 </msg>
 
 </messages>

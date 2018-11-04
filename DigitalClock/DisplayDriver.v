@@ -3,7 +3,7 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date:    01:58:48 11/04/2018 
+// Create Date:    05:12:58 11/04/2018 
 // Design Name: 
 // Module Name:    DisplayDriver 
 // Project Name: 
@@ -18,20 +18,28 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module DisplayDriver(input [1:0] location,
-							input [3:0] digit,
-							input [1:0] mode,
-							input M_CLOCK,
-							output reg [7:0] IO_SSEG,
-							output reg [3:0] IO_SSEGD,
-							output reg IO_SSEG_COL,
-							output reg [7:0] IO_LED);
-							
-	parameter NORMALMODE = 2'b00;
-	parameter SECONDMODE = 2'b01;
-	parameter MINUTEMODE = 2'b10;
-	parameter HOURMODE   = 2'b11;
-	
+module DisplayDriver(input clk,
+							input [1:0]mode,
+							input [3:0]secondsLower,
+							input [2:0]secondsUpper,
+							input [3:0]minutesLower,
+							input [2:0]minutesUpper,
+							input [2:0]hoursLower,
+							input [1:0]hoursUpper,
+							input [1:0] location,
+							output reg [7:0] SSEG,
+							output reg [3:0] SSEGD,
+							output reg SSEG_COL);
+	//Parameters for selecting display mode of operation.
+	parameter SETUP   = 2'b00;
+	parameter TIME24  = 2'b01;
+	parameter SECONDS = 2'b10;
+	parameter TIME12  = 2'b11;
+	//Parameters for digit being displayed since only one can be displayed
+	parameter FIRSTDIGIT = 2'b00;
+	parameter SECONDDIGIT = 2'b01;
+	parameter THIRDDIGIT = 2'b10;
+	parameter FOURTHDIGIT = 2'b11;
 	//Look up table for 7seg display
 	parameter ZERO  = 8'b11000000;
 	parameter ONE   = 8'b11111001;
@@ -43,17 +51,152 @@ module DisplayDriver(input [1:0] location,
 	parameter SEVEN = 8'b11111000;
 	parameter EIGHT = 8'b10000000;
 	parameter NINE  = 8'b10011000;
-
-	always@(posedge M_CLOCK) begin
+	
+	//traveling through digits
+	reg [1:0] currentDigit = FIRSTDIGIT;
+	
+	always@(posedge clk) begin
 		case(mode)
-		NORMALMODE:
-			case(location)
-			
-			
-			
-			default:           //ERROR
+		//Setup mode: blink digit being set.
+		SETUP: begin
+		SSEG_COL = 0;
+			case(currentDig)
+			FIRSTDIGIT: begin
+				if(location == FIRSTDIGIT) begin
+					if(clk== 24999999) begin SSEGD[0] <= ~SSEGD[0]; end
+				end
+				else begin
+				SSEGD <= 4'b1110;
+				end
+					case(hoursUpper)
+					0: SSEG <= ZERO;
+					1: SSEG <= ONE;
+					2: IO SSEG <= TWO;
+					endcase
+				currentDigit <= SECONDDIGIT;
+			end
+			///////////////
+			SECONDDIGIT: begin
+				if(location == SECONDDIGIT) begin
+					if(clk== 24999999) begin SSEGD[0] <= ~SSEGD[0]; end
+				end
+				else begin
+				SSEGD <= 4'b1110;
+				end
+					case(hoursLower)
+					0: SSEG <= ZERO;
+					1: SSEG <= ONE;
+					2: IO SSEG <= TWO;
+					3: IO SSEG <= THREE;
+					4: IO SSEG <= FOUR;
+					endcase
+				currentDigit <= THIRDDIGIT; 
+			end
+			///////////////
+			THIRDDIGIT: begin
+				if(location == THIRDDIGIT) begin
+					if(clk== 24999999) begin SSEGD[0] <= ~SSEGD[0]; end
+				end
+				else begin
+				SSEGD <= 4'b1110;
+				end
+				case(minutesUpper)
+					0: SSEG <= ZERO;
+					1: SSEG <= ONE;
+					2: IO SSEG <= TWO;
+					3: IO SSEG <= THREE;
+					4: IO SSEG <= FOUR;
+					5: SSEG <= FIVE;
+				endcase
+				currentDigit <= FOURTHDIGIT;
+			end
+			///////////////
+			FOURTHDIGIT: begin
+				if(location == FOURTHDIGIT) begin
+					if(clk== 24999999) begin SSEGD[0] <= ~SSEGD[0]; end
+				end
+				else begin
+				SSEGD <= 4'b1110;
+				end
+				case(minutesLower)
+					0:SSEG = ZERO;
+					1:SSEG = ONE;
+					2:SSEG = TWO;
+					3:SSEG = THREE;
+					4:SSEG = FOUR;
+					5:SSEG = FIVE;
+					6:SSEG = SIX;
+					7:SSEG = SEVEN;
+					8:SSEG = EIGHT;
+					9:SSEG = NINE;
+				endcase
+				currentDigit <= FIRSTDIGIT;
+			end
+			///////////////
+			default: SSEG <= 8'b00000000;//ERROR
 			endcase
-		default: IO_SSEG = 8'b00000000; //ERROR
+		end
+		///////////////////////////////////////////////////////
+		TIME24: begin
+		SSEG_COL <= 0;
+			case (currentDigit)
+			FIRSTDIGIT: begin
+			SSEGD <= 4'b1110;
+				case(hoursUpper)
+					0: SSEG <= ZERO;
+					1: SSEG <= ONE;
+					2: IO SSEG <= TWO;
+					endcase
+			currentDigit <= SECONDDIGIT;
+			end
+			SECONDDIGIT: begin
+				case(hoursLower)
+					0: SSEG <= ZERO;
+					1: SSEG <= ONE;
+					2: IO SSEG <= TWO;
+					3: IO SSEG <= THREE;
+					4: IO SSEG <= FOUR;
+					endcase
+			currentDigit <= THIRDDIGIT;
+			end
+			THIRDDIGIT: begin
+				case(minutesUpper)
+					0: SSEG <= ZERO;
+					1: SSEG <= ONE;
+					2: IO SSEG <= TWO;
+					3: IO SSEG <= THREE;
+					4: IO SSEG <= FOUR;
+					5: SSEG <= FIVE;
+				endcase
+				currentDigit <= FOURTHDIGIT;
+			end
+			FOURTHDIGIT: begin
+				case(minutesLower)
+					0:SSEG = ZERO;
+					1:SSEG = ONE;
+					2:SSEG = TWO;
+					3:SSEG = THREE;
+					4:SSEG = FOUR;
+					5:SSEG = FIVE;
+					6:SSEG = SIX;
+					7:SSEG = SEVEN;
+					8:SSEG = EIGHT;
+					9:SSEG = NINE;
+				endcase
+				currentDigit <= FIRSTDIGIT;
+			end
+			default: SSEG <= 8'b00000000;//ERROR
+			endcase
+		end
+		///////////////////////////////////////////////////////
+		//SECONDS: begin
+		
+		//end
+		///////////////////////////////////////////////////////
+		//TIME12: begin
+		
+		//end
+		default: SSEG <= 8'b00000000;//ERROR
 		endcase
 	end
 endmodule

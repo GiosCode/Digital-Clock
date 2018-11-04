@@ -34,7 +34,7 @@ NET	"IO_SSEGD<2>"	LOC = P84; #[][][*][]
 NET	"IO_SSEGD<3>"	LOC = P88; #[][][][*]
 #====================================================
 # IO Board Seven Segment Display Colon
-#NET	"IO_SSEG_COL"	LOC = P87; 
+NET	"IO_SSEG_COL"	LOC = P87; 
 #====================================================
 # IO Board Pushbutton Switches 
 # Pushbutton Determines which Digit to Enable  , Depressed = 0
