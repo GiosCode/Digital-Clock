@@ -1,0 +1,4 @@
+xst -intstyle ise -ifn "/home/ise/XIlinxShare/Digital-Clock/DigitalClock/top.xst" -ofn "/home/ise/XIlinxShare/Digital-Clock/DigitalClock/top.syr" 
+xst -intstyle ise -ifn "/home/ise/XIlinxShare/Digital-Clock/DigitalClock/top.xst" -ofn "/home/ise/XIlinxShare/Digital-Clock/DigitalClock/top.syr" 
+xst -intstyle ise -ifn "/home/ise/XIlinxShare/Digital-Clock/DigitalClock/top.xst" -ofn "/home/ise/XIlinxShare/Digital-Clock/DigitalClock/top.syr" 
+xst -intstyle ise -ifn "/home/ise/XIlinxShare/Digital-Clock/DigitalClock/top.xst" -ofn "/home/ise/XIlinxShare/Digital-Clock/DigitalClock/top.syr" 

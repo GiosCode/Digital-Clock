@@ -60,7 +60,7 @@ module DisplayDriver(input clk,
 		//Setup mode: blink digit being set.
 		SETUP: begin
 		SSEG_COL = 0;
-			case(currentDig)
+			case(currentDigit)
 			FIRSTDIGIT: begin
 				if(location == FIRSTDIGIT) begin
 					if(clk== 24999999) begin SSEGD[0] <= ~SSEGD[0]; end
@@ -71,7 +71,7 @@ module DisplayDriver(input clk,
 					case(hoursUpper)
 					0: SSEG <= ZERO;
 					1: SSEG <= ONE;
-					2: IO SSEG <= TWO;
+					2: SSEG <= TWO;
 					endcase
 				currentDigit <= SECONDDIGIT;
 			end
@@ -86,9 +86,9 @@ module DisplayDriver(input clk,
 					case(hoursLower)
 					0: SSEG <= ZERO;
 					1: SSEG <= ONE;
-					2: IO SSEG <= TWO;
-					3: IO SSEG <= THREE;
-					4: IO SSEG <= FOUR;
+					2: SSEG <= TWO;
+					3: SSEG <= THREE;
+					4: SSEG <= FOUR;
 					endcase
 				currentDigit <= THIRDDIGIT; 
 			end
@@ -103,9 +103,9 @@ module DisplayDriver(input clk,
 				case(minutesUpper)
 					0: SSEG <= ZERO;
 					1: SSEG <= ONE;
-					2: IO SSEG <= TWO;
-					3: IO SSEG <= THREE;
-					4: IO SSEG <= FOUR;
+					2: SSEG <= TWO;
+					3: SSEG <= THREE;
+					4: SSEG <= FOUR;
 					5: SSEG <= FIVE;
 				endcase
 				currentDigit <= FOURTHDIGIT;
@@ -145,7 +145,7 @@ module DisplayDriver(input clk,
 				case(hoursUpper)
 					0: SSEG <= ZERO;
 					1: SSEG <= ONE;
-					2: IO SSEG <= TWO;
+					2: SSEG <= TWO;
 					endcase
 			currentDigit <= SECONDDIGIT;
 			end
@@ -153,9 +153,9 @@ module DisplayDriver(input clk,
 				case(hoursLower)
 					0: SSEG <= ZERO;
 					1: SSEG <= ONE;
-					2: IO SSEG <= TWO;
-					3: IO SSEG <= THREE;
-					4: IO SSEG <= FOUR;
+					2: SSEG <= TWO;
+					3: SSEG <= THREE;
+					4: SSEG <= FOUR;
 					endcase
 			currentDigit <= THIRDDIGIT;
 			end
@@ -163,25 +163,25 @@ module DisplayDriver(input clk,
 				case(minutesUpper)
 					0: SSEG <= ZERO;
 					1: SSEG <= ONE;
-					2: IO SSEG <= TWO;
-					3: IO SSEG <= THREE;
-					4: IO SSEG <= FOUR;
+					2: SSEG <= TWO;
+					3: SSEG <= THREE;
+					4: SSEG <= FOUR;
 					5: SSEG <= FIVE;
 				endcase
 				currentDigit <= FOURTHDIGIT;
 			end
 			FOURTHDIGIT: begin
 				case(minutesLower)
-					0:SSEG = ZERO;
-					1:SSEG = ONE;
-					2:SSEG = TWO;
-					3:SSEG = THREE;
-					4:SSEG = FOUR;
-					5:SSEG = FIVE;
-					6:SSEG = SIX;
-					7:SSEG = SEVEN;
-					8:SSEG = EIGHT;
-					9:SSEG = NINE;
+					0:SSEG <= ZERO;
+					1:SSEG <= ONE;
+					2:SSEG <= TWO;
+					3:SSEG <= THREE;
+					4:SSEG <= FOUR;
+					5:SSEG <= FIVE;
+					6:SSEG <= SIX;
+					7:SSEG <= SEVEN;
+					8:SSEG <= EIGHT;
+					9:SSEG <= NINE;
 				endcase
 				currentDigit <= FIRSTDIGIT;
 			end

@@ -1,0 +1,1 @@
+xst -intstyle ise -ifn "/home/ise/XIlinxShare/Digital-Clock/DigitalClock/DigitalClock.xst" -ofn "/home/ise/XIlinxShare/Digital-Clock/DigitalClock/DigitalClock.syr" 

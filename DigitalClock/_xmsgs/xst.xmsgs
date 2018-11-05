@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- IMPORTANT: This is an internal file that has been generated
+     by the Xilinx ISE software.  Any direct editing or
+     changes made to this file may result in unpredictable
+     behavior or data corruption.  It is strongly advised that
+     users do not edit the contents of this file. -->
+<messages>
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"/home/ise/XIlinxShare/Digital-Clock/DigitalClock/top.v" Line 39: Module &lt;<arg fmt="%s" index="1">ModeSelect</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">setup</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1016" delta="new" >"/home/ise/XIlinxShare/Digital-Clock/DigitalClock/top.v" Line 39: Port <arg fmt="%s" index="1">setUp</arg> is not connected to this instance
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="25" delta="new" >"/home/ise/XIlinxShare/Digital-Clock/DigitalClock/top.v" Line 40: Module &lt;<arg fmt="%s" index="1">DisplayDriver</arg>&gt; does not have a port named &lt;<arg fmt="%s" index="2">cl</arg>&gt;.
+</msg>
+
+<msg type="error" file="HDLCompiler" num="329" delta="new" >"/home/ise/XIlinxShare/Digital-Clock/DigitalClock/top.v" Line 40: Target &lt;<arg fmt="%s" index="1">IO_SSEG</arg>&gt; of concurrent assignment or output port connection should be a net type.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1016" delta="new" >"/home/ise/XIlinxShare/Digital-Clock/DigitalClock/top.v" Line 40: Port <arg fmt="%s" index="1">clk</arg> is not connected to this instance
+</msg>
+
+</messages>
+

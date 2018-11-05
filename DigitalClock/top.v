@@ -24,15 +24,19 @@ module top(input M_CLOCK,
 				output reg [7:0] IO_SSEG,
 				output reg [3:0] IO_SSEGD,
 				output reg IO_SSEG_COL);
-				
-wire [3:0] w1;//For buttons
-wire [7:0] w2;//For DSW
-wire [7:0] w3;//For SSEG
-wire [3:0] w4;//For SSEGD
+wire setupflag;
+wire [1:0] dmode;
+wire [1:0] dloc; //from dc to dd
 wire w5;//For colon::::
-wire w6;//for clock
 
+wire [3:0]minuteslower;
+wire [2:0]minutesupper;
+wire [2:0]hourslower;
+wire [1:0]hoursupper;
+wire [5:0]seconds;
 
-
+	DigitalClock DC0(.clk(M_CLOCK),.PB(IO_PB),.DSW(IO_DSW[7:0]),.setupMode(setupflag),.hourUpper(hourupper),.hourLower(hourlower),.minuteUpper(minuteupper),.minuteLower(minutelower),.secondCounter(seconds),.loc(dloc));
+	ModeSelect MS0(.setup(setupflag),.buttons(IO_PB),.mode(dmode));
+	DisplayDriver D0(.cl(M_CLOCK),.mode(dmode),.minutesLower(minuteslower),.minutesUpper(minutesupper),.hoursLower(hourslower),.hoursUpper(hoursupper),.location(dloc),.SSEG(IO_SSEG),.SSEGD(IO_SSEGD),.SSEG_COL(IO_SSEG_COL));
 
 endmodule

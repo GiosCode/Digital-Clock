@@ -25,7 +25,9 @@ module DigitalClock(input clk,
 							output reg [3:0]hourUpper,
 							output reg [3:0]hourLower,
 							output reg [3:0]minuteUpper,
-							output reg [3:0]minuteLower);
+							output reg [3:0]minuteLower,
+							output reg [5:0]secondCounter,
+							output reg [1:0]loc);
 	//Second and half second clock parameters
 	parameter HALFSEC = 24999999;
 	parameter SECOND  = 49999999;
@@ -39,102 +41,89 @@ module DigitalClock(input clk,
 	reg [3:0] selectDigit = FIRSTDIGIT;
 	
 	//First Time setup variable
-	reg timeSetup = 0;//Flag for first time setup
+	reg timeSetup = 0;//Flag for first time setup, might change this into a reset input
+	
 	reg [3:0] hourUpperTMP;
 	reg [3:0] hourLowerTMP;
 	reg [3:0] minuteUpperTMP;
 	reg [3:0] minuteLowerTMP;
 	
 	//Time keeping registers
-	reg [5:0]     secondCounter;
+	//reg [5:0]     secondCounter;
 	integer secTicks = 0;	
 	
 	//Increase by 1 every second, this is the scaled clock.
 	always @(posedge clk) begin
 		if(secTicks == SECOND) begin
-		secTicks <= 0;
-			if(secondCounter > 60) begin
+			secTicks <= 0;
+			if(secondCounter == 60) begin
 				secondCounter <= 1;
-				if(minuteLower > 9) begin
-				minuteLower <= 0;
-				if(minuteUpper > 5) begin
-					minuteUpper <= 0;
-					if(hourLower > 4)begin
-						hourLower <= 0;
-						if(hourUpper > 2) begin
-						hourUpper   <= 0;
-						hourLower   <= 0;
-						minuteLower <= 0;
-						minuteUpper <= 0;
+				if(minuteLower == 9) begin
+					minuteLower <= 1;
+					if(minuteUpper == 5) begin
+						minuteUpper <= 1;
+						if(hourLower == 4)begin
+							hourLower <= 1;
+							if(hourUpper == 2) begin
+								hourUpper   <= 0;
+								hourLower   <= 0;
+								minuteLower <= 0;
+								minuteUpper <= 0;
+							end
+								else hourUpper <= hourUpper +1;
 						end
-							else hourUpper <= hourUpper +1;
-					end
 						else hourLower <=hourLower + 1;
-				end
+					end
 					else minuteUpper <= minuteUpper +1;
-			end
+				end
 				else minuteLower <= minuteLower + 1;
-		end
+			end
 			else secondCounter <= secondCounter + 1;
 		end
-			else secTicks <= secTicks + 1;
+		else secTicks <= secTicks + 1;
 	end
 	
-	//Clock Setup, do once on power or                             IMPLEMENT: when two buttons are pressed
+	//Clock Setup, do once on boot.
 	always @(posedge clk) begin
 		if(timeSetup == 0) begin//Clock is not origionally set up
+		setupMode <= 1;//Signal to dislay driver
 			//Case statement for setting up each digit
 			case(selectDigit)
 			///////////////////////////////////////////////////////////
-			FIRSTDIGIT: begin //MAX value is 2
-			if(DSW[3:0] > 2) begin
-			hourUpperTMP <= 4'b0010;
-			end
-			else hourUpperTMP <= DSW[3:0];
-			if(PB[0]) selectDigit <= SECONDDIGIT;
-			end
-			////////////////////////////////////////////////////////
-			SECONDDIGIT: begin//Max value is 4
-			if(DSW[3:0] > 4) begin
-			hourLowerTMP <= 4'b0100;
-			end
-			else hourLowerTMP <= DSW[3:0];
-			if(PB[1]) selectDigit <= THIRDDIGIT;
-			end
-			///////////////////////////////////////////////
-			THIRDDIGIT: begin //MAX VALUE IS 5
-			if(DSW[3:0] > 5) begin
-			minuteUpperTMP <= 4'b0101;
-			end
-			else minuteUpperTMP <= DSW[3:0];
-			if(PB[2]) selectDigit <= FOURTHDIGIT;			
-			end
+				FIRSTDIGIT: begin //MAX value is 2
+				if(DSW[3:0] > 2) begin hourUpperTMP <= 4'b0010; end
+				else hourUpperTMP <= DSW[3:0];
+				if(~PB[0]) selectDigit <= SECONDDIGIT;
+				end
+				////////////////////////////////////////////////////////
+				SECONDDIGIT: begin//Max value is 4
+				if(DSW[3:0] > 4) begin hourLowerTMP <= 4'b0100; end
+				else hourLowerTMP <= DSW[3:0];
+				if(~PB[1]) selectDigit <= THIRDDIGIT;
+				end
+				///////////////////////////////////////////////
+				THIRDDIGIT: begin //MAX VALUE IS 5
+				if(DSW[3:0] > 5) begin minuteUpperTMP <= 4'b0101; end
+				else minuteUpperTMP <= DSW[3:0];
+				if(~PB[2]) selectDigit <= FOURTHDIGIT;			
+				end
+				////////////////////////////////////////////////////
+				FOURTHDIGIT: begin// MAX VALUE IS 9
+				if(DSW[3:0] > 9) begin minuteLowerTMP <= 4'b1001; end
+				else minuteUpperTMP <= DSW[3:0];
+				if(~PB[3]) selectDigit <= SETTIME;
+				end
+				//////////////////////////////////////////////////
+				SETTIME    : begin
+				hourUpper   <= hourUpperTMP;
+				hourLower   <= hourLowerTMP;
+				minuteUpper <= minuteUpperTMP;
+				minuteLower <= minuteLowerTMP;
+				secondCounter <=0; //Reset all time keeping registers
+				timeSetup <= 1;//Set up complete
+				end
 			////////////////////////////////////////////////////
-			FOURTHDIGIT: begin// MAX VALUE IS 9
-			if(DSW[3:0] > 9) begin
-			minuteLowerTMP <= 4'b1001;
-			end
-			else minuteUpperTMP <= DSW[3:0];
-			if(PB[3]) selectDigit <= SETTIME;
-			end
-			//////////////////////////////////////////////////
-			SETTIME    : begin
-			hourUpper   <= hourUpperTMP;
-			hourLower   <= hourLowerTMP;
-			minuteUpper <= minuteUpperTMP;
-			minuteLower <= minuteLowerTMP;
-			//Reset all time keeping registers
-			secondCounter <=0;
-			//minuteCounter <=0;
-			//hourCounter <=0;
-			timeSetup <= 1;//Set up complete
-			end			
 			endcase
 		end
-		if(timeSetup == 1 && (PB[0] && PB[3])) begin//User wants to overwrite clock/timer/etc
-		timeSetup <= 0;
-		end	
-		end
 	end
-
 endmodule
