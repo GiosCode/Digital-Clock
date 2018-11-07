@@ -54,6 +54,7 @@ module DigitalClock(input clk,
 	
 	//Increase by 1 every second, this is the scaled clock.
 	always @(posedge clk) begin
+	
 		if(secTicks == SECOND) begin
 			secTicks <= 0;
 			if(secondCounter == 60) begin
@@ -89,37 +90,41 @@ module DigitalClock(input clk,
 			case(selectDigit)
 			///////////////////////////////////////////////////////////
 				FIRSTDIGIT: begin //MAX value is 2
+				loc <= 2'b00;
 				if(DSW[3:0] > 2) begin hourUpperTMP <= 4'b0010; end
 				else hourUpperTMP <= DSW[3:0];
 				if(~PB[0]) selectDigit <= SECONDDIGIT;
 				end
 				////////////////////////////////////////////////////////
 				SECONDDIGIT: begin//Max value is 4
+				loc <= 2'b01;
 				if(DSW[3:0] > 4) begin hourLowerTMP <= 4'b0100; end
 				else hourLowerTMP <= DSW[3:0];
 				if(~PB[1]) selectDigit <= THIRDDIGIT;
 				end
 				///////////////////////////////////////////////
 				THIRDDIGIT: begin //MAX VALUE IS 5
+				loc <= 2'b10;
 				if(DSW[3:0] > 5) begin minuteUpperTMP <= 4'b0101; end
 				else minuteUpperTMP <= DSW[3:0];
 				if(~PB[2]) selectDigit <= FOURTHDIGIT;			
 				end
 				////////////////////////////////////////////////////
 				FOURTHDIGIT: begin// MAX VALUE IS 9
+				loc <= 2'b11;
 				if(DSW[3:0] > 9) begin minuteLowerTMP <= 4'b1001; end
-				else minuteUpperTMP <= DSW[3:0];
+				else minuteLowerTMP <= DSW[3:0];
 				if(~PB[3]) selectDigit <= SETTIME;
 				end
 				//////////////////////////////////////////////////
-				//SETTIME    : begin
-				//hourUpper   <= hourUpperTMP;
-				//hourLower   <= hourLowerTMP;
-				//minuteUpper <= minuteUpperTMP;
-				//minuteLower <= minuteLowerTMP;
-				//secondCounter <=0; //Reset all time keeping registers
-				//timeSetup <= 1;//Set up complete
-				//end
+				SETTIME    : begin
+				hourUpper   <= hourUpperTMP;
+				hourLower   <= hourLowerTMP;
+				minuteUpper <= minuteUpperTMP;
+				minuteLower <= minuteLowerTMP;
+				secondCounter <=0; //Reset all time keeping registers
+				timeSetup <= 1;//Set up complete
+				end
 			////////////////////////////////////////////////////
 			endcase
 		end

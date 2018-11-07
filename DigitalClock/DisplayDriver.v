@@ -20,8 +20,8 @@
 //////////////////////////////////////////////////////////////////////////////////
 module DisplayDriver(input clk,
 							input [1:0]mode,
-							input [3:0]secondsLower,
-							input [3:0]secondsUpper,
+							//input [3:0]secondsLower,
+							//input [3:0]secondsUpper,
 							input [3:0]minutesLower,
 							input [3:0]minutesUpper,
 							input [3:0]hoursLower,
@@ -69,9 +69,16 @@ module DisplayDriver(input clk,
 				SSEGD <= 4'b1110;
 				end
 					case(hoursUpper)
-					0: SSEG <= ZERO;
-					1: SSEG <= ONE;
-					2: SSEG <= TWO;
+					0:SSEG <= ZERO;
+					1:SSEG <= ONE;
+					2:SSEG <= TWO;
+					3:SSEG <= THREE;
+					4:SSEG <= FOUR;
+					5:SSEG <= FIVE;
+					6:SSEG <= SIX;
+					7:SSEG <= SEVEN;
+					8:SSEG <= EIGHT;
+					9:SSEG <= NINE;
 					endcase
 				currentDigit <= SECONDDIGIT;
 			end
@@ -84,11 +91,16 @@ module DisplayDriver(input clk,
 				SSEGD <= 4'b1101;
 				end
 					case(hoursLower)
-					0: SSEG <= ZERO;
-					1: SSEG <= ONE;
-					2: SSEG <= TWO;
-					3: SSEG <= THREE;
-					4: SSEG <= FOUR;
+					0:SSEG <= ZERO;
+					1:SSEG <= ONE;
+					2:SSEG <= TWO;
+					3:SSEG <= THREE;
+					4:SSEG <= FOUR;
+					5:SSEG <= FIVE;
+					6:SSEG <= SIX;
+					7:SSEG <= SEVEN;
+					8:SSEG <= EIGHT;
+					9:SSEG <= NINE;
 					endcase
 				currentDigit <= THIRDDIGIT; 
 			end
@@ -101,12 +113,16 @@ module DisplayDriver(input clk,
 				SSEGD <= 4'b1011;
 				end
 				case(minutesUpper)
-					0: SSEG <= ZERO;
-					1: SSEG <= ONE;
-					2: SSEG <= TWO;
-					3: SSEG <= THREE;
-					4: SSEG <= FOUR;
-					5: SSEG <= FIVE;
+					0:SSEG <= ZERO;
+					1:SSEG <= ONE;
+					2:SSEG <= TWO;
+					3:SSEG <= THREE;
+					4:SSEG <= FOUR;
+					5:SSEG <= FIVE;
+					6:SSEG <= SIX;
+					7:SSEG <= SEVEN;
+					8:SSEG <= EIGHT;
+					9:SSEG <= NINE;
 				endcase
 				currentDigit <= FOURTHDIGIT;
 			end
@@ -138,37 +154,53 @@ module DisplayDriver(input clk,
 		end
 		///////////////////////////////////////////////////////
 		TIME24: begin
-		SSEG_COL <= 0;
+		SSEG_COL <= 1;
 			case (currentDigit)
 			FIRSTDIGIT: begin
 			SSEGD <= 4'b1110;
 				case(hoursUpper)
-					0: SSEG <= ZERO;
-					1: SSEG <= ONE;
-					2: SSEG <= TWO;
+					0:SSEG <= ZERO;
+					1:SSEG <= ONE;
+					2:SSEG <= TWO;
+					3:SSEG <= THREE;
+					4:SSEG <= FOUR;
+					5:SSEG <= FIVE;
+					6:SSEG <= SIX;
+					7:SSEG <= SEVEN;
+					8:SSEG <= EIGHT;
+					9:SSEG <= NINE;
 					endcase
 			currentDigit <= SECONDDIGIT;
 			end
 			SECONDDIGIT: begin
 			SSEGD <= 4'b1101;
 				case(hoursLower)
-					0: SSEG <= ZERO;
-					1: SSEG <= ONE;
-					2: SSEG <= TWO;
-					3: SSEG <= THREE;
-					4: SSEG <= FOUR;
+					0:SSEG <= ZERO;
+					1:SSEG <= ONE;
+					2:SSEG <= TWO;
+					3:SSEG <= THREE;
+					4:SSEG <= FOUR;
+					5:SSEG <= FIVE;
+					6:SSEG <= SIX;
+					7:SSEG <= SEVEN;
+					8:SSEG <= EIGHT;
+					9:SSEG <= NINE;
 					endcase
 			currentDigit <= THIRDDIGIT;
 			end
 			THIRDDIGIT: begin
 			SSEGD <= 4'b1011;
 				case(minutesUpper)
-					0: SSEG <= ZERO;
-					1: SSEG <= ONE;
-					2: SSEG <= TWO;
-					3: SSEG <= THREE;
-					4: SSEG <= FOUR;
-					5: SSEG <= FIVE;
+					0:SSEG <= ZERO;
+					1:SSEG <= ONE;
+					2:SSEG <= TWO;
+					3:SSEG <= THREE;
+					4:SSEG <= FOUR;
+					5:SSEG <= FIVE;
+					6:SSEG <= SIX;
+					7:SSEG <= SEVEN;
+					8:SSEG <= EIGHT;
+					9:SSEG <= NINE;
 				endcase
 				currentDigit <= FOURTHDIGIT;
 			end
