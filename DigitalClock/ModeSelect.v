@@ -22,16 +22,24 @@ module ModeSelect(input setUp,
 						input [3:0]buttons,
 						output reg [1:0]mode);
 
+//reg [3:0]mode;
+
+//Parameters for modes
+parameter SETUP   = 2'b00;
+parameter TIME24  = 2'b01;
+parameter SECONDS = 2'b10;
+parameter TIME12  = 2'b11;
 
 always @* begin
 	if(setUp == 1) begin
-		mode <= 2'b00; //Setup mode
+		//mode <= SETUP; //Setup mode
+	mode <= SETUP;
 	end
 	else begin
 	case(buttons)
-	4'b1110: mode<= 2'b01; //24 hour mode
-	4'b1101: mode<= 2'b10; //12 hour mode
-	4'b1011: mode<= 2'b11; //seconds mode
+	4'b1110:  mode <= TIME24; //24 hour mode
+	//4'b1101: prevMode<= SECONDS; //
+	//4'b1011: prevMode<= TIME12; //
 	endcase
 	end
 end

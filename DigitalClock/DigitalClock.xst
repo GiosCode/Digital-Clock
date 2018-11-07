@@ -1,5 +1,5 @@
-set -tmpdir "/home/ise/XIlinxShare/Digital-Clock/DigitalClock/xst/projnav.tmp"
-set -xsthdpdir "/home/ise/XIlinxShare/Digital-Clock/DigitalClock/xst"
+set -tmpdir "/home/ise/VMShare/Digital-Clock/DigitalClock/xst/projnav.tmp"
+set -xsthdpdir "/home/ise/VMShare/Digital-Clock/DigitalClock/xst"
 run -compileonly yes
 -p xc6slx9-3-tqg144
 -top DigitalClock

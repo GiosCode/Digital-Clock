@@ -1,18 +1,18 @@
 Release 14.7 - xst P.20160913 (lin64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 --> 
-Parameter TMPDIR set to /home/ise/XIlinxShare/Digital-Clock/DigitalClock/xst/projnav.tmp
+Parameter TMPDIR set to /home/ise/VMShare/Digital-Clock/DigitalClock/xst/projnav.tmp
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.02 secs
+Total CPU time to Xst completion: 0.04 secs
  
 --> 
-Parameter xsthdpdir set to /home/ise/XIlinxShare/Digital-Clock/DigitalClock/xst
+Parameter xsthdpdir set to /home/ise/VMShare/Digital-Clock/DigitalClock/xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.02 secs
+Total CPU time to Xst completion: 0.05 secs
  
 --> 
 Reading design: DigitalClock.prj
@@ -42,12 +42,12 @@ TABLE OF CONTENTS
 =========================================================================
 *                          HDL Parsing                                  *
 =========================================================================
-Analyzing Verilog file "/home/ise/XIlinxShare/Digital-Clock/DigitalClock/DigitalClock.v" into library work
+Analyzing Verilog file "/home/ise/VMShare/Digital-Clock/DigitalClock/DigitalClock.v" into library work
 Parsing module <DigitalClock>.
 
 
-Total REAL time to Xst completion: 3.00 secs
-Total CPU time to Xst completion: 2.53 secs
+Total REAL time to Xst completion: 10.00 secs
+Total CPU time to Xst completion: 9.74 secs
  
 --> 
 

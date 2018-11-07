@@ -5,14 +5,14 @@ Parameter TMPDIR set to xst/projnav.tmp
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.03 secs
+Total CPU time to Xst completion: 0.05 secs
  
 --> 
 Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.03 secs
+Total CPU time to Xst completion: 0.05 secs
  
 --> 
 Reading design: top.prj
@@ -108,29 +108,480 @@ Slice Utilization Ratio Delta      : 5
 =========================================================================
 *                          HDL Parsing                                  *
 =========================================================================
-Analyzing Verilog file "/home/ise/XIlinxShare/Digital-Clock/DigitalClock/ModeSelect.v" into library work
+Analyzing Verilog file "/home/ise/VMShare/Digital-Clock/DigitalClock/ModeSelect.v" into library work
 Parsing module <ModeSelect>.
-Analyzing Verilog file "/home/ise/XIlinxShare/Digital-Clock/DigitalClock/DisplayDriver.v" into library work
+Analyzing Verilog file "/home/ise/VMShare/Digital-Clock/DigitalClock/DisplayDriver.v" into library work
 Parsing module <DisplayDriver>.
-Analyzing Verilog file "/home/ise/XIlinxShare/Digital-Clock/DigitalClock/DigitalClock.v" into library work
+Analyzing Verilog file "/home/ise/VMShare/Digital-Clock/DigitalClock/DigitalClock.v" into library work
 Parsing module <DigitalClock>.
-Analyzing Verilog file "/home/ise/XIlinxShare/Digital-Clock/DigitalClock/top.v" into library work
+Analyzing Verilog file "/home/ise/VMShare/Digital-Clock/DigitalClock/top.v" into library work
 Parsing module <top>.
 
 =========================================================================
 *                            HDL Elaboration                            *
 =========================================================================
-WARNING:HDLCompiler:25 - "/home/ise/XIlinxShare/Digital-Clock/DigitalClock/top.v" Line 39: Module <ModeSelect> does not have a port named <setup>.
-WARNING:HDLCompiler:1016 - "/home/ise/XIlinxShare/Digital-Clock/DigitalClock/top.v" Line 39: Port setUp is not connected to this instance
-WARNING:HDLCompiler:25 - "/home/ise/XIlinxShare/Digital-Clock/DigitalClock/top.v" Line 40: Module <DisplayDriver> does not have a port named <cl>.
-ERROR:HDLCompiler:329 - "/home/ise/XIlinxShare/Digital-Clock/DigitalClock/top.v" Line 40: Target <IO_SSEG> of concurrent assignment or output port connection should be a net type.
-WARNING:HDLCompiler:1016 - "/home/ise/XIlinxShare/Digital-Clock/DigitalClock/top.v" Line 40: Port clk is not connected to this instance
+WARNING:HDLCompiler:1016 - "/home/ise/VMShare/Digital-Clock/DigitalClock/top.v" Line 44: Port secondsLower is not connected to this instance
+
+Elaborating module <top>.
+
+Elaborating module <DigitalClock>.
+WARNING:HDLCompiler:872 - "/home/ise/VMShare/Digital-Clock/DigitalClock/DigitalClock.v" Line 44: Using initial value of timeSetup since it is never assigned
+WARNING:HDLCompiler:413 - "/home/ise/VMShare/Digital-Clock/DigitalClock/DigitalClock.v" Line 73: Result of 5-bit expression is truncated to fit in 4-bit target.
+WARNING:HDLCompiler:413 - "/home/ise/VMShare/Digital-Clock/DigitalClock/DigitalClock.v" Line 75: Result of 5-bit expression is truncated to fit in 4-bit target.
+WARNING:HDLCompiler:413 - "/home/ise/VMShare/Digital-Clock/DigitalClock/DigitalClock.v" Line 77: Result of 5-bit expression is truncated to fit in 4-bit target.
+WARNING:HDLCompiler:413 - "/home/ise/VMShare/Digital-Clock/DigitalClock/DigitalClock.v" Line 79: Result of 5-bit expression is truncated to fit in 4-bit target.
+WARNING:HDLCompiler:413 - "/home/ise/VMShare/Digital-Clock/DigitalClock/DigitalClock.v" Line 81: Result of 7-bit expression is truncated to fit in 6-bit target.
+WARNING:HDLCompiler:1127 - "/home/ise/VMShare/Digital-Clock/DigitalClock/DigitalClock.v" Line 56: Assignment to hourUpperTMP ignored, since the identifier is never used
+WARNING:HDLCompiler:189 - "/home/ise/VMShare/Digital-Clock/DigitalClock/top.v" Line 42: Size mismatch in connection of port <hourUpper>. Formal port size is 4-bit while actual signal size is 1-bit.
+WARNING:HDLCompiler:1127 - "/home/ise/VMShare/Digital-Clock/DigitalClock/top.v" Line 42: Assignment to hourupper ignored, since the identifier is never used
+
+Elaborating module <ModeSelect>.
+
+Elaborating module <DisplayDriver>.
+WARNING:HDLCompiler:634 - "/home/ise/VMShare/Digital-Clock/DigitalClock/top.v" Line 36: Net <minuteslower[3]> does not have a driver.
+WARNING:HDLCompiler:634 - "/home/ise/VMShare/Digital-Clock/DigitalClock/top.v" Line 37: Net <minutesupper[3]> does not have a driver.
+WARNING:HDLCompiler:634 - "/home/ise/VMShare/Digital-Clock/DigitalClock/top.v" Line 38: Net <hourslower[3]> does not have a driver.
+WARNING:HDLCompiler:634 - "/home/ise/VMShare/Digital-Clock/DigitalClock/top.v" Line 39: Net <hoursupper[3]> does not have a driver.
+WARNING:HDLCompiler:552 - "/home/ise/VMShare/Digital-Clock/DigitalClock/top.v" Line 44: Input port secondsLower[3] is not connected on this instance
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Synthesizing Unit <top>.
+    Related source file is "/home/ise/VMShare/Digital-Clock/DigitalClock/top.v".
+WARNING:Xst:2898 - Port 'secondsLower', unconnected in block instance 'D0', is tied to GND.
+WARNING:Xst:2898 - Port 'secondsUpper', unconnected in block instance 'D0', is tied to GND.
+INFO:Xst:3210 - "/home/ise/VMShare/Digital-Clock/DigitalClock/top.v" line 42: Output port <hourUpper> of the instance <DC0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/ise/VMShare/Digital-Clock/DigitalClock/top.v" line 42: Output port <hourLower> of the instance <DC0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/ise/VMShare/Digital-Clock/DigitalClock/top.v" line 42: Output port <minuteUpper> of the instance <DC0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/ise/VMShare/Digital-Clock/DigitalClock/top.v" line 42: Output port <minuteLower> of the instance <DC0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/ise/VMShare/Digital-Clock/DigitalClock/top.v" line 42: Output port <secondCounter> of the instance <DC0> is unconnected or connected to loadless signal.
+WARNING:Xst:653 - Signal <minuteslower> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+WARNING:Xst:653 - Signal <minutesupper> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+WARNING:Xst:653 - Signal <hourslower> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+WARNING:Xst:653 - Signal <hoursupper> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+    Summary:
+	no macro.
+Unit <top> synthesized.
+
+Synthesizing Unit <DigitalClock>.
+    Related source file is "/home/ise/VMShare/Digital-Clock/DigitalClock/DigitalClock.v".
+        HALFSEC = 24999999
+        SECOND = 49999999
+        FIRSTDIGIT = 3'b000
+        SECONDDIGIT = 3'b001
+        THIRDDIGIT = 3'b010
+        FOURTHDIGIT = 3'b011
+        SETTIME = 3'b100
+WARNING:Xst:647 - Input <PB> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <DSW> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:653 - Signal <loc> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+    Found 6-bit register for signal <secondCounter>.
+    Found 4-bit register for signal <minuteLower>.
+    Found 4-bit register for signal <minuteUpper>.
+    Found 4-bit register for signal <hourLower>.
+    Found 4-bit register for signal <hourUpper>.
+    Found 32-bit register for signal <secTicks>.
+    Found 4-bit adder for signal <hourUpper[3]_GND_2_o_add_7_OUT> created at line 73.
+    Found 4-bit adder for signal <hourLower[3]_GND_2_o_add_12_OUT> created at line 75.
+    Found 4-bit adder for signal <minuteUpper[3]_GND_2_o_add_17_OUT> created at line 77.
+    Found 4-bit adder for signal <minuteLower[3]_GND_2_o_add_22_OUT> created at line 79.
+    Found 6-bit adder for signal <secondCounter[5]_GND_2_o_add_27_OUT> created at line 81.
+    Found 32-bit adder for signal <secTicks[31]_GND_2_o_add_33_OUT> created at line 83.
+    WARNING:Xst:2404 -  FFs/Latches <setupMode<0:0>> (without init value) have a constant value of 1 in block <DigitalClock>.
+    Summary:
+	inferred   6 Adder/Subtractor(s).
+	inferred  54 D-type flip-flop(s).
+	inferred   4 Multiplexer(s).
+Unit <DigitalClock> synthesized.
+
+Synthesizing Unit <ModeSelect>.
+    Related source file is "/home/ise/VMShare/Digital-Clock/DigitalClock/ModeSelect.v".
+        SETUP = 2'b00
+        TIME24 = 2'b01
+        SECONDS = 2'b10
+        TIME12 = 2'b11
+WARNING:Xst:737 - Found 1-bit latch for signal <mode<0>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <mode<1>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+    Summary:
+	inferred   2 Latch(s).
+Unit <ModeSelect> synthesized.
+
+Synthesizing Unit <DisplayDriver>.
+    Related source file is "/home/ise/VMShare/Digital-Clock/DigitalClock/DisplayDriver.v".
+        SETUP = 2'b00
+        TIME24 = 2'b01
+        SECONDS = 2'b10
+        TIME12 = 2'b11
+        FIRSTDIGIT = 2'b00
+        SECONDDIGIT = 2'b01
+        THIRDDIGIT = 2'b10
+        FOURTHDIGIT = 2'b11
+        ZERO = 8'b11000000
+        ONE = 8'b11111001
+        TWO = 8'b10100100
+        THREE = 8'b10110000
+        FOUR = 8'b10011001
+        FIVE = 8'b10010010
+        SIX = 8'b10000010
+        SEVEN = 8'b11111000
+        EIGHT = 8'b10000000
+        NINE = 8'b10011000
+WARNING:Xst:647 - Input <secondsLower> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <secondsUpper> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 4-bit register for signal <SSEGD>.
+    Found 8-bit register for signal <SSEG>.
+    Found 2-bit register for signal <currentDigit>.
+    Found 1-bit register for signal <SSEG_COL>.
+    Found finite state machine <FSM_0> for signal <currentDigit>.
+    -----------------------------------------------------------------------
+    | States             | 4                                              |
+    | Transitions        | 8                                              |
+    | Inputs             | 1                                              |
+    | Outputs            | 6                                              |
+    | Clock              | clk (rising_edge)                              |
+    | Power Up State     | 00                                             |
+    | Encoding           | auto                                           |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 4-bit 4-to-1 multiplexer for signal <currentDigit[1]_GND_6_o_wide_mux_30_OUT> created at line 63.
+    Found 8-bit 4-to-1 multiplexer for signal <currentDigit[1]_minutesLower[3]_wide_mux_31_OUT> created at line 63.
+    Summary:
+	inferred  13 D-type flip-flop(s).
+	inferred   6 Multiplexer(s).
+	inferred   1 Finite State Machine(s).
+Unit <DisplayDriver> synthesized.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 6
+ 32-bit adder                                          : 1
+ 4-bit adder                                           : 4
+ 6-bit adder                                           : 1
+# Registers                                            : 9
+ 1-bit register                                        : 1
+ 32-bit register                                       : 1
+ 4-bit register                                        : 5
+ 6-bit register                                        : 1
+ 8-bit register                                        : 1
+# Latches                                              : 2
+ 1-bit latch                                           : 2
+# Multiplexers                                         : 10
+ 4-bit 2-to-1 multiplexer                              : 8
+ 4-bit 4-to-1 multiplexer                              : 1
+ 8-bit 4-to-1 multiplexer                              : 1
+# FSMs                                                 : 1
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+WARNING:Xst:1710 - FF/Latch <mode_1> (without init value) has a constant value of 0 in block <MS0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <SSEG_COL> (without init value) has a constant value of 0 in block <D0>. This FF/Latch will be trimmed during the optimization process.
+
+Synthesizing (advanced) Unit <DigitalClock>.
+The following registers are absorbed into counter <secTicks>: 1 register on signal <secTicks>.
+The following registers are absorbed into counter <minuteUpper>: 1 register on signal <minuteUpper>.
+The following registers are absorbed into counter <hourLower>: 1 register on signal <hourLower>.
+The following registers are absorbed into counter <hourUpper>: 1 register on signal <hourUpper>.
+The following registers are absorbed into counter <secondCounter>: 1 register on signal <secondCounter>.
+The following registers are absorbed into counter <minuteLower>: 1 register on signal <minuteLower>.
+Unit <DigitalClock> synthesized (advanced).
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Counters                                             : 6
+ 32-bit up counter                                     : 1
+ 4-bit up counter                                      : 4
+ 6-bit up counter                                      : 1
+# Registers                                            : 13
+ Flip-Flops                                            : 13
+# Multiplexers                                         : 7
+ 4-bit 2-to-1 multiplexer                              : 5
+ 4-bit 4-to-1 multiplexer                              : 1
+ 8-bit 4-to-1 multiplexer                              : 1
+# FSMs                                                 : 1
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+WARNING:Xst:1710 - FF/Latch <mode_1> (without init value) has a constant value of 0 in block <ModeSelect>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <SSEG_COL> (without init value) has a constant value of 0 in block <DisplayDriver>. This FF/Latch will be trimmed during the optimization process.
+Analyzing FSM <MFsm> for best encoding.
+Optimizing FSM <D0/FSM_0> on signal <currentDigit[1:2]> with user encoding.
+-------------------
+ State | Encoding
+-------------------
+ 00    | 00
+ 01    | 01
+ 10    | 10
+ 11    | 11
+-------------------
+WARNING:Xst:1710 - FF/Latch <SSEG_0> (without init value) has a constant value of 0 in block <DisplayDriver>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <SSEG_1> (without init value) has a constant value of 0 in block <DisplayDriver>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <SSEG_2> (without init value) has a constant value of 0 in block <DisplayDriver>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <SSEG_3> (without init value) has a constant value of 0 in block <DisplayDriver>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <SSEG_4> (without init value) has a constant value of 0 in block <DisplayDriver>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <SSEG_5> (without init value) has a constant value of 0 in block <DisplayDriver>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <SSEG_6> (without init value) has a constant value of 1 in block <DisplayDriver>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <SSEG_7> (without init value) has a constant value of 1 in block <DisplayDriver>. This FF/Latch will be trimmed during the optimization process.
+
+Optimizing unit <top> ...
+
+Optimizing unit <DigitalClock> ...
+
+Optimizing unit <DisplayDriver> ...
+WARNING:Xst:2677 - Node <DC0/minuteLower_3> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <DC0/minuteLower_2> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <DC0/minuteLower_1> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <DC0/minuteLower_0> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <DC0/minuteUpper_3> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <DC0/minuteUpper_2> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <DC0/minuteUpper_1> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <DC0/minuteUpper_0> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <DC0/secondCounter_5> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <DC0/secondCounter_3> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <DC0/secondCounter_2> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <DC0/secondCounter_4> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <DC0/secondCounter_1> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <DC0/secondCounter_0> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <DC0/hourUpper_3> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <DC0/hourUpper_2> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <DC0/hourUpper_1> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <DC0/hourUpper_0> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <DC0/hourLower_3> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <DC0/hourLower_2> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <DC0/hourLower_1> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <DC0/hourLower_0> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <DC0/secTicks_31> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <DC0/secTicks_30> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <DC0/secTicks_29> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <DC0/secTicks_28> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <DC0/secTicks_27> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <DC0/secTicks_26> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <DC0/secTicks_25> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <DC0/secTicks_24> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <DC0/secTicks_23> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <DC0/secTicks_22> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <DC0/secTicks_21> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <DC0/secTicks_20> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <DC0/secTicks_19> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <DC0/secTicks_18> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <DC0/secTicks_17> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <DC0/secTicks_16> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <DC0/secTicks_15> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <DC0/secTicks_14> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <DC0/secTicks_13> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <DC0/secTicks_12> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <DC0/secTicks_11> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <DC0/secTicks_10> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <DC0/secTicks_9> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <DC0/secTicks_8> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <DC0/secTicks_7> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <DC0/secTicks_6> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <DC0/secTicks_5> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <DC0/secTicks_4> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <DC0/secTicks_3> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <DC0/secTicks_2> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <DC0/secTicks_1> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <DC0/secTicks_0> of sequential type is unconnected in block <top>.
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block top, actual ratio is 0.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 6
+ Flip-Flops                                            : 6
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Design Summary                             *
+=========================================================================
+
+Top Level Output File Name         : top.ngc
+
+Primitive and Black Box Usage:
+------------------------------
+# BELS                             : 9
+#      GND                         : 1
+#      INV                         : 1
+#      LUT2                        : 1
+#      LUT4                        : 5
+#      VCC                         : 1
+# FlipFlops/Latches                : 7
+#      FD                          : 6
+#      LDC                         : 1
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 17
+#      IBUF                        : 4
+#      OBUF                        : 13
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 6slx9tqg144-3 
+
+
+Slice Logic Utilization: 
+ Number of Slice Registers:               7  out of  11440     0%  
+ Number of Slice LUTs:                    7  out of   5720     0%  
+    Number used as Logic:                 7  out of   5720     0%  
+
+Slice Logic Distribution: 
+ Number of LUT Flip Flop pairs used:     14
+   Number with an unused Flip Flop:       7  out of     14    50%  
+   Number with an unused LUT:             7  out of     14    50%  
+   Number of fully used LUT-FF pairs:     0  out of     14     0%  
+   Number of unique control sets:         2
+
+IO Utilization: 
+ Number of IOs:                          26
+ Number of bonded IOBs:                  18  out of    102    17%  
+
+Specific Feature Utilization:
+ Number of BUFG/BUFGCTRLs:                1  out of     16     6%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+Timing Report
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+MS0/_n0015(MS0/_n0015<0>1:O)       | NONE(*)(MS0/mode_0)    | 1     |
+M_CLOCK                            | BUFGP                  | 6     |
+-----------------------------------+------------------------+-------+
+(*) This 1 clock signal(s) are generated by combinatorial logic,
+and XST is not able to identify which are the primary clock signals.
+Please use the CLOCK_SIGNAL constraint to specify the clock signal(s) generated by combinatorial logic.
+INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -3
+
+   Minimum period: 2.078ns (Maximum Frequency: 481.325MHz)
+   Minimum input arrival time before clock: No path found
+   Maximum output required time after clock: 3.634ns
+   Maximum combinational path delay: No path found
+
+Timing Details:
+---------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'M_CLOCK'
+  Clock period: 2.078ns (frequency: 481.325MHz)
+  Total number of paths / destination ports: 15 / 6
+-------------------------------------------------------------------------
+Delay:               2.078ns (Levels of Logic = 1)
+  Source:            D0/currentDigit_FSM_FFd2 (FF)
+  Destination:       D0/currentDigit_FSM_FFd2 (FF)
+  Source Clock:      M_CLOCK rising
+  Destination Clock: M_CLOCK rising
+
+  Data Path: D0/currentDigit_FSM_FFd2 to D0/currentDigit_FSM_FFd2
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FD:C->Q               6   0.447   0.744  D0/currentDigit_FSM_FFd2 (D0/currentDigit_FSM_FFd2)
+     INV:I->O              1   0.206   0.579  D0/currentDigit_FSM_FFd2-In1_INV_0 (D0/currentDigit_FSM_FFd2-In)
+     FD:D                      0.102          D0/currentDigit_FSM_FFd2
+    ----------------------------------------
+    Total                      2.078ns (0.755ns logic, 1.323ns route)
+                                       (36.3% logic, 63.7% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'M_CLOCK'
+  Total number of paths / destination ports: 4 / 4
+-------------------------------------------------------------------------
+Offset:              3.634ns (Levels of Logic = 1)
+  Source:            D0/SSEGD_3 (FF)
+  Destination:       IO_SSEGD<3> (PAD)
+  Source Clock:      M_CLOCK rising
+
+  Data Path: D0/SSEGD_3 to IO_SSEGD<3>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FD:C->Q               2   0.447   0.616  D0/SSEGD_3 (D0/SSEGD_3)
+     OBUF:I->O                 2.571          IO_SSEGD_3_OBUF (IO_SSEGD<3>)
+    ----------------------------------------
+    Total                      3.634ns (3.018ns logic, 0.616ns route)
+                                       (83.0% logic, 17.0% route)
+
+=========================================================================
+
+Cross Clock Domains Report:
+--------------------------
+
+Clock to Setup on destination clock M_CLOCK
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+MS0/_n0015     |         |    1.734|         |         |
+M_CLOCK        |    2.078|         |         |         |
+---------------+---------+---------+---------+---------+
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 14.00 secs
+Total CPU time to Xst completion: 12.83 secs
+ 
 --> 
 
 
-Total memory usage is 307960 kilobytes
+Total memory usage is 384556 kilobytes
 
-Number of errors   :    1 (   0 filtered)
-Number of warnings :    4 (   0 filtered)
-Number of infos    :    0 (   0 filtered)
+Number of errors   :    0 (   0 filtered)
+Number of warnings :   95 (   0 filtered)
+Number of infos    :    6 (   0 filtered)
 

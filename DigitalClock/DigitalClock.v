@@ -70,9 +70,9 @@ module DigitalClock(input clk,
 								minuteLower <= 0;
 								minuteUpper <= 0;
 							end
-								else hourUpper <= hourUpper +1;
+							else hourUpper <= hourUpper +1;
 						end
-						else hourLower <=hourLower + 1;
+						else hourLower <= hourLower + 1;
 					end
 					else minuteUpper <= minuteUpper +1;
 				end
@@ -81,10 +81,8 @@ module DigitalClock(input clk,
 			else secondCounter <= secondCounter + 1;
 		end
 		else secTicks <= secTicks + 1;
-	end
-	
-	//Clock Setup, do once on boot.
-	always @(posedge clk) begin
+		
+		//First time setup
 		if(timeSetup == 0) begin//Clock is not origionally set up
 		setupMode <= 1;//Signal to dislay driver
 			//Case statement for setting up each digit
@@ -114,16 +112,18 @@ module DigitalClock(input clk,
 				if(~PB[3]) selectDigit <= SETTIME;
 				end
 				//////////////////////////////////////////////////
-				SETTIME    : begin
-				hourUpper   <= hourUpperTMP;
-				hourLower   <= hourLowerTMP;
-				minuteUpper <= minuteUpperTMP;
-				minuteLower <= minuteLowerTMP;
-				secondCounter <=0; //Reset all time keeping registers
-				timeSetup <= 1;//Set up complete
-				end
+				//SETTIME    : begin
+				//hourUpper   <= hourUpperTMP;
+				//hourLower   <= hourLowerTMP;
+				//minuteUpper <= minuteUpperTMP;
+				//minuteLower <= minuteLowerTMP;
+				//secondCounter <=0; //Reset all time keeping registers
+				//timeSetup <= 1;//Set up complete
+				//end
 			////////////////////////////////////////////////////
 			endcase
 		end
+		
 	end
+
 endmodule
