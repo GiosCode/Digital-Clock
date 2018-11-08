@@ -36,14 +36,14 @@ Setup/Hold to clock M_CLOCK
             |Max Setup to|  Process   |Max Hold to |  Process   |                  | Clock  |
 Source      | clk (edge) |   Corner   | clk (edge) |   Corner   |Internal Clock(s) | Phase  |
 ------------+------------+------------+------------+------------+------------------+--------+
-IO_DSW<0>   |    2.869(R)|      SLOW  |   -0.977(R)|      FAST  |M_CLOCK_BUFGP     |   0.000|
-IO_DSW<1>   |    2.763(R)|      SLOW  |   -0.898(R)|      FAST  |M_CLOCK_BUFGP     |   0.000|
-IO_DSW<2>   |    2.898(R)|      SLOW  |   -0.980(R)|      FAST  |M_CLOCK_BUFGP     |   0.000|
-IO_DSW<3>   |    2.903(R)|      SLOW  |   -0.801(R)|      FAST  |M_CLOCK_BUFGP     |   0.000|
-IO_PB<0>    |    1.312(R)|      SLOW  |   -0.412(R)|      SLOW  |M_CLOCK_BUFGP     |   0.000|
-IO_PB<1>    |    0.864(R)|      SLOW  |    0.011(R)|      SLOW  |M_CLOCK_BUFGP     |   0.000|
-IO_PB<2>    |    1.053(R)|      SLOW  |   -0.165(R)|      SLOW  |M_CLOCK_BUFGP     |   0.000|
-IO_PB<3>    |    1.245(R)|      SLOW  |   -0.350(R)|      SLOW  |M_CLOCK_BUFGP     |   0.000|
+IO_DSW<0>   |    3.206(R)|      SLOW  |   -1.106(R)|      FAST  |M_CLOCK_BUFGP     |   0.000|
+IO_DSW<1>   |    3.310(R)|      SLOW  |   -1.047(R)|      FAST  |M_CLOCK_BUFGP     |   0.000|
+IO_DSW<2>   |    4.203(R)|      SLOW  |   -0.659(R)|      FAST  |M_CLOCK_BUFGP     |   0.000|
+IO_DSW<3>   |    4.133(R)|      SLOW  |   -0.842(R)|      FAST  |M_CLOCK_BUFGP     |   0.000|
+IO_PB<0>    |    0.801(R)|      SLOW  |    0.087(R)|      SLOW  |M_CLOCK_BUFGP     |   0.000|
+IO_PB<1>    |    0.461(R)|      SLOW  |    0.390(R)|      SLOW  |M_CLOCK_BUFGP     |   0.000|
+IO_PB<2>    |    1.024(R)|      SLOW  |   -0.122(R)|      SLOW  |M_CLOCK_BUFGP     |   0.000|
+IO_PB<3>    |    0.914(R)|      SLOW  |   -0.019(R)|      SLOW  |M_CLOCK_BUFGP     |   0.000|
 ------------+------------+------------+------------+------------+------------------+--------+
 
 Clock M_CLOCK to Pad
@@ -51,17 +51,7 @@ Clock M_CLOCK to Pad
             |Max (slowest) clk|  Process   |Min (fastest) clk|  Process   |                  | Clock  |
 Destination |  (edge) to PAD  |   Corner   |  (edge) to PAD  |   Corner   |Internal Clock(s) | Phase  |
 ------------+-----------------+------------+-----------------+------------+------------------+--------+
-IO_SSEG<0>  |         8.428(R)|      SLOW  |         4.432(R)|      FAST  |M_CLOCK_BUFGP     |   0.000|
-IO_SSEG<1>  |         8.645(R)|      SLOW  |         4.573(R)|      FAST  |M_CLOCK_BUFGP     |   0.000|
-IO_SSEG<2>  |         8.308(R)|      SLOW  |         4.337(R)|      FAST  |M_CLOCK_BUFGP     |   0.000|
-IO_SSEG<3>  |         8.139(R)|      SLOW  |         4.234(R)|      FAST  |M_CLOCK_BUFGP     |   0.000|
-IO_SSEG<4>  |         8.213(R)|      SLOW  |         4.311(R)|      FAST  |M_CLOCK_BUFGP     |   0.000|
-IO_SSEG<5>  |         8.444(R)|      SLOW  |         4.435(R)|      FAST  |M_CLOCK_BUFGP     |   0.000|
-IO_SSEG<6>  |         8.551(R)|      SLOW  |         4.480(R)|      FAST  |M_CLOCK_BUFGP     |   0.000|
-IO_SSEGD<0> |         6.943(R)|      SLOW  |         3.502(R)|      FAST  |M_CLOCK_BUFGP     |   0.000|
-IO_SSEGD<1> |         6.974(R)|      SLOW  |         3.504(R)|      FAST  |M_CLOCK_BUFGP     |   0.000|
-IO_SSEGD<2> |         6.550(R)|      SLOW  |         3.246(R)|      FAST  |M_CLOCK_BUFGP     |   0.000|
-IO_SSEGD<3> |         6.770(R)|      SLOW  |         3.396(R)|      FAST  |M_CLOCK_BUFGP     |   0.000|
+prob        |         8.367(R)|      SLOW  |         4.373(R)|      FAST  |M_CLOCK_BUFGP     |   0.000|
 ------------+-----------------+------------+-----------------+------------+------------------+--------+
 
 Clock to Setup on destination clock M_CLOCK
@@ -69,11 +59,11 @@ Clock to Setup on destination clock M_CLOCK
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-M_CLOCK        |    3.979|         |         |         |
+M_CLOCK        |    4.261|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 
-Analysis completed Wed Nov  7 06:43:55 2018 
+Analysis completed Wed Nov  7 23:01:01 2018 
 --------------------------------------------------------------------------------
 
 Trace Settings:

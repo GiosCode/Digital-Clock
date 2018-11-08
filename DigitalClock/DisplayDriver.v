@@ -54,20 +54,31 @@ module DisplayDriver(input clk,
 	
 	//traveling through digits
 	reg [1:0] currentDigit = FIRSTDIGIT;
-	
+	reg flag;
+	reg [31:0] scaledClock;
+	//scale clock to 20ms
 	always@(posedge clk) begin
+		scaledClock <= scaledClock +1;
+		if(scaledClock == 1000000/8) begin
+		flag <= ~flag;
+		scaledClock <=0;
+		end
+	
+	end
+	
+	always@(posedge flag) begin
 		case(mode)
 		//Setup mode: blink digit being set.
 		SETUP: begin
 		SSEG_COL <= 0;
 			case(currentDigit)
 			FIRSTDIGIT: begin
-				if(location == FIRSTDIGIT) begin
-					if(clk== 24999999) begin SSEGD[0] <= ~SSEGD[0]; end
-				end
-				else begin
+				//if(location == FIRSTDIGIT) begin
+					//if(scaledClock== 24999999) begin SSEGD[0] <= ~SSEGD[0]; end
+				//end
+				//else begin
 				SSEGD <= 4'b1110;
-				end
+				//end
 					case(hoursUpper)
 					0:SSEG <= ZERO;
 					1:SSEG <= ONE;
@@ -79,17 +90,18 @@ module DisplayDriver(input clk,
 					7:SSEG <= SEVEN;
 					8:SSEG <= EIGHT;
 					9:SSEG <= NINE;
+					default:SSEG <=8'b11111111;
 					endcase
 				currentDigit <= SECONDDIGIT;
 			end
 			///////////////
 			SECONDDIGIT: begin
-				if(location == SECONDDIGIT) begin
-					if(clk== 24999999) begin SSEGD[1] <= ~SSEGD[1]; end
-				end
-				else begin
+				//if(location == SECONDDIGIT) begin
+				//	if(scaledClock== 24999999) begin SSEGD[1] <= ~SSEGD[1]; end
+				//end
+				//else begin
 				SSEGD <= 4'b1101;
-				end
+				//end
 					case(hoursLower)
 					0:SSEG <= ZERO;
 					1:SSEG <= ONE;
@@ -101,17 +113,18 @@ module DisplayDriver(input clk,
 					7:SSEG <= SEVEN;
 					8:SSEG <= EIGHT;
 					9:SSEG <= NINE;
+					default: SSEG <= 8'b00000000;
 					endcase
 				currentDigit <= THIRDDIGIT; 
 			end
 			///////////////
 			THIRDDIGIT: begin
-				if(location == THIRDDIGIT) begin
-					if(clk== 24999999) begin SSEGD[2] <= ~SSEGD[2]; end
-				end
-				else begin
+				//if(location == THIRDDIGIT) begin
+					//if(scaledClock== 24999999) begin SSEGD[2] <= ~SSEGD[2]; end
+				//end
+				//else begin
 				SSEGD <= 4'b1011;
-				end
+				//end
 				case(minutesUpper)
 					0:SSEG <= ZERO;
 					1:SSEG <= ONE;
@@ -123,17 +136,18 @@ module DisplayDriver(input clk,
 					7:SSEG <= SEVEN;
 					8:SSEG <= EIGHT;
 					9:SSEG <= NINE;
+					default: SSEG <= 8'b00000000;
 				endcase
 				currentDigit <= FOURTHDIGIT;
 			end
 			///////////////
 			FOURTHDIGIT: begin
-				if(location == FOURTHDIGIT) begin
-					if(clk== 24999999) begin SSEGD[3] <= ~SSEGD[3]; end
-				end
-				else begin
+				//if(location == FOURTHDIGIT) begin
+					//if(scaledClock== 24999999) begin SSEGD[3] <= ~SSEGD[3]; end
+				//end
+				//else begin
 				SSEGD <= 4'b0111;
-				end
+				//end
 				case(minutesLower)
 					0:SSEG <= ZERO;
 					1:SSEG <= ONE;
@@ -145,16 +159,17 @@ module DisplayDriver(input clk,
 					7:SSEG <= SEVEN;
 					8:SSEG <= EIGHT;
 					9:SSEG <= NINE;
+					default: SSEG <= 8'b00000000;
 				endcase
 				currentDigit <= FIRSTDIGIT;
 			end
 			///////////////
-			default: SSEG <= 8'b00000000;//ERROR for Setup display
+			default: SSEG <= 8'b11111111;//ERROR for Setup display
 			endcase
 		end
 		///////////////////////////////////////////////////////
 		TIME24: begin
-		SSEG_COL <= 1;
+		SSEG_COL <= 0;
 			case (currentDigit)
 			FIRSTDIGIT: begin
 			SSEGD <= 4'b1110;
@@ -169,6 +184,7 @@ module DisplayDriver(input clk,
 					7:SSEG <= SEVEN;
 					8:SSEG <= EIGHT;
 					9:SSEG <= NINE;
+					default: SSEG <= 8'b00000000;
 					endcase
 			currentDigit <= SECONDDIGIT;
 			end
@@ -185,6 +201,7 @@ module DisplayDriver(input clk,
 					7:SSEG <= SEVEN;
 					8:SSEG <= EIGHT;
 					9:SSEG <= NINE;
+					default: SSEG <= 8'b00000000;
 					endcase
 			currentDigit <= THIRDDIGIT;
 			end
@@ -201,13 +218,13 @@ module DisplayDriver(input clk,
 					7:SSEG <= SEVEN;
 					8:SSEG <= EIGHT;
 					9:SSEG <= NINE;
+					default: SSEG <= 8'b00000000;
 				endcase
 				currentDigit <= FOURTHDIGIT;
 			end
 			FOURTHDIGIT: begin
 			SSEGD <= 4'b0111;
 			//Blink minutes decimal point once a second
-				if(clk == 24999999) begin
 					case(minutesLower)
 						0:SSEG <= ZERO;
 						1:SSEG <= ONE;
@@ -219,22 +236,8 @@ module DisplayDriver(input clk,
 						7:SSEG <= SEVEN;
 						8:SSEG <= EIGHT;
 						9:SSEG <= NINE;
+						default: SSEG <= 8'b00000000;
 					endcase
-				end
-				else begin
-					case(minutesLower)
-						0:SSEG <= ZERO;
-						1:SSEG <= ONE;
-						2:SSEG <= TWO;
-						3:SSEG <= THREE;
-						4:SSEG <= FOUR;
-						5:SSEG <= FIVE;
-						6:SSEG <= SIX;
-						7:SSEG <= SEVEN;
-						8:SSEG <= EIGHT;
-						9:SSEG <= NINE;
-					endcase
-				end
 			currentDigit <= FIRSTDIGIT;
 			end
 			default: SSEG <= 8'b00000000;//ERROR for 24 hour display

@@ -2,10 +2,10 @@
 # Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 SOFTWARE_VERSION P.20160913
-DATE            11/ 7/2018 -  6:45
-SOURCE          /home/ise/XIlinxShare/Digital-Clock/DigitalClock/fpga.mcs
+DATE            11/ 7/2018 - 23: 1
+SOURCE          /home/ise/VMShare/Digital-Clock/DigitalClock/fpga.mcs
 DEVICE          512K
 DATA_WIDTH      1
 FILL_DATA       0xFF
-SIGNATURE       0x02D2A02F
-START_ADDRESS   0x00000000 END_ADDRESS 0x0005327B DIRECTION_UP   "/home/ise/XIlinxShare/Digital-Clock/DigitalClock/top.bit" 6slx9tqg144
+SIGNATURE       0x02D2F2D1
+START_ADDRESS   0x00000000 END_ADDRESS 0x0005327B DIRECTION_UP   "/home/ise/VMShare/Digital-Clock/DigitalClock/top.bit" 6slx9tqg144

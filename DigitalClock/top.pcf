@@ -1,5 +1,5 @@
 //! **************************************************************************
-// Written by: Map P.20160913 on Wed Nov 07 06:43:42 2018
+// Written by: Map P.20160913 on Wed Nov 07 23:00:30 2018
 //! **************************************************************************
 
 SCHEMATIC START;
@@ -14,6 +14,7 @@ COMP "IO_SSEG<6>" LOCATE = SITE "P104" LEVEL 1;
 COMP "IO_SSEG<7>" LOCATE = SITE "P99" LEVEL 1;
 COMP "IO_PB<0>" LOCATE = SITE "P80" LEVEL 1;
 COMP "IO_PB<1>" LOCATE = SITE "P81" LEVEL 1;
+COMP "prob" LOCATE = SITE "P118" LEVEL 1;
 COMP "IO_PB<2>" LOCATE = SITE "P78" LEVEL 1;
 COMP "IO_PB<3>" LOCATE = SITE "P79" LEVEL 1;
 COMP "IO_SSEGD<0>" LOCATE = SITE "P92" LEVEL 1;

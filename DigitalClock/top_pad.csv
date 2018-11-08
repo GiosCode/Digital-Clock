@@ -1,7 +1,7 @@
 #Release 14.7 - par P.20160913 (lin64)
 #Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-#Wed Nov  7 06:43:50 2018
+#Wed Nov  7 23:00:48 2018
 
 #
 ## NOTE: This file is designed to be imported into a spreadsheet program
@@ -136,14 +136,14 @@ P114,,IOBS,IO_L65N_SCP2_0,UNUSED,,0,,,,,,,,,
 P115,,IOBM,IO_L65P_SCP3_0,UNUSED,,0,,,,,,,,,
 P116,,IOBS,IO_L64N_SCP4_0,UNUSED,,0,,,,,,,,,
 P117,,IOBM,IO_L64P_SCP5_0,UNUSED,,0,,,,,,,,,
-P118,,IOBS,IO_L63N_SCP6_0,UNUSED,,0,,,,,,,,,
+P118,prob,IOB,IO_L63N_SCP6_0,OUTPUT,LVCMOS25*,0,12,SLOW,,,,LOCATED,NO,NONE,
 P119,,IOBM,IO_L63P_SCP7_0,UNUSED,,0,,,,,,,,,
 P120,,IOBS,IO_L62N_VREF_0,UNUSED,,0,,,,,,,,,
 P121,,IOBM,IO_L62P_0,UNUSED,,0,,,,,,,,,
-P122,,,VCCO_0,,,0,,,,,any******,,,,
+P122,,,VCCO_0,,,0,,,,,2.50,,,,
 P123,M_CLOCK,IOB,IO_L37N_GCLK12_0,INPUT,LVCMOS25*,0,,,,NONE,,LOCATED,NO,NONE,
 P124,,IOBM,IO_L37P_GCLK13_0,UNUSED,,0,,,,,,,,,
-P125,,,VCCO_0,,,0,,,,,any******,,,,
+P125,,,VCCO_0,,,0,,,,,2.50,,,,
 P126,,IOBS,IO_L36N_GCLK14_0,UNUSED,,0,,,,,,,,,
 P127,,IOBM,IO_L36P_GCLK15_0,UNUSED,,0,,,,,,,,,
 P128,,,VCCINT,,,,,,,,1.2,,,,
@@ -153,7 +153,7 @@ P131,,IOBS,IO_L35N_GCLK16_0,UNUSED,,0,,,,,,,,,
 P132,,IOBM,IO_L35P_GCLK17_0,UNUSED,,0,,,,,,,,,
 P133,,IOBS,IO_L34N_GCLK18_0,UNUSED,,0,,,,,,,,,
 P134,,IOBM,IO_L34P_GCLK19_0,UNUSED,,0,,,,,,,,,
-P135,,,VCCO_0,,,0,,,,,any******,,,,
+P135,,,VCCO_0,,,0,,,,,2.50,,,,
 P136,,,GND,,,,,,,,,,,,
 P137,,IOBS,IO_L4N_0,UNUSED,,0,,,,,,,,,
 P138,,IOBM,IO_L4P_0,UNUSED,,0,,,,,,,,,

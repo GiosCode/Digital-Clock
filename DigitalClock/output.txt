@@ -2,7 +2,11 @@ Storage Target: SPI Flash Single FPGA
 4M
 FF
 fpga
-/home/ise/XIlinxShare/Digital-Clock/DigitalClock/
+/home/ise/VMShare/Digital-Clock/DigitalClock/
+
+MCS
+No
+
 
 MCS
 No

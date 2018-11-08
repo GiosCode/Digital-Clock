@@ -1,9 +1,9 @@
 PROMGEN: Xilinx Prom Generator P.20160913
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-promgen -w -p mcs -c FF -o /home/ise/XIlinxShare/Digital-Clock/DigitalClock//fpga -s 512 -u 0000 /home/ise/XIlinxShare/Digital-Clock/DigitalClock/top.bit -spi 
+promgen -w -p mcs -c FF -o /home/ise/VMShare/Digital-Clock/DigitalClock//fpga -s 512 -u 0000 /home/ise/VMShare/Digital-Clock/DigitalClock/top.bit -spi 
 
-PROM /home/ise/XIlinxShare/Digital-Clock/DigitalClock/fpga.prm map: Wed Nov  7 06:45:02 2018
+PROM /home/ise/VMShare/Digital-Clock/DigitalClock/fpga.prm map: Wed Nov  7 23:01:57 2018
 
 Calculating PROM checksum with fill value ff
 
@@ -11,7 +11,7 @@ Format        Mcs86 (32-bit)
 Size          512K
 PROM start    0000:0000
 PROM end      0007:ffff
-PROM checksum 02d2a02f
+PROM checksum 02d2f2d1
 
         Addr1        Addr2                     Date File(s)
-    0000:0000    0005:327b     Nov  7 06:44:04 2018 /home/ise/XIlinxShare/Digital-Clock/DigitalClock/top.bit
+    0000:0000    0005:327b     Nov  7 23:01:21 2018 /home/ise/VMShare/Digital-Clock/DigitalClock/top.bit

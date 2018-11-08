@@ -23,7 +23,8 @@ module top(input M_CLOCK,
 				input [7:0] IO_DSW,
 				output [7:0]IO_SSEG,
 				output [3:0]IO_SSEGD,
-				output IO_SSEG_COL);
+				output IO_SSEG_COL,
+				output prob);
 				
 
 //wire setupflag;//
@@ -76,7 +77,7 @@ wire DDSSEG_COL;
 	assign IO_SSEG = DDSSEG;
 	assign IO_SSEGD = DDSSEGD;
 	assign IO_SSEG_COL = DDSSEG_COL;
-
+	assign  prob = DCsecondCounter;
 	//DigitalClock DC0(.clk(M_CLOCK),.PB(IO_PB),.DSW(IO_DSW[7:0]),.setupMode(setupflag),.hourUpper(hourupper),.hourLower(hourlower),.minuteUpper(minuteupper),.minuteLower(minutelower),.secondCounter(seconds),.loc(dloc));
 	//ModeSelect MS0(.setUp(setupflag),.buttons(IO_PB),.mode(dmode));
 	//DisplayDriver D0(.clk(M_CLOCK),.mode(dmode),.minutesLower(minuteslower),.minutesUpper(minutesupper),.hoursLower(hourslower),.hoursUpper(hoursupper),.location(dloc),.SSEG(IO_SSEG),.SSEGD(IO_SSEGD),.SSEG_COL(IO_SSEG_COL));
