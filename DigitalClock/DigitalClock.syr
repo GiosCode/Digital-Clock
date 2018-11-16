@@ -110,96 +110,17 @@ Slice Utilization Ratio Delta      : 5
 =========================================================================
 Analyzing Verilog file "/home/ise/XIlinxShare/Digital-Clock/DigitalClock/DigitalClock.v" into library work
 Parsing module <DigitalClock>.
-
-=========================================================================
-*                            HDL Elaboration                            *
-=========================================================================
-
-Elaborating module <DigitalClock>.
-WARNING:HDLCompiler:872 - "/home/ise/XIlinxShare/Digital-Clock/DigitalClock/DigitalClock.v" Line 49: Using initial value of displayMode since it is never assigned
-WARNING:HDLCompiler:413 - "/home/ise/XIlinxShare/Digital-Clock/DigitalClock/DigitalClock.v" Line 98: Result of 5-bit expression is truncated to fit in 4-bit target.
-WARNING:HDLCompiler:413 - "/home/ise/XIlinxShare/Digital-Clock/DigitalClock/DigitalClock.v" Line 100: Result of 5-bit expression is truncated to fit in 4-bit target.
-WARNING:HDLCompiler:413 - "/home/ise/XIlinxShare/Digital-Clock/DigitalClock/DigitalClock.v" Line 102: Result of 5-bit expression is truncated to fit in 4-bit target.
-WARNING:HDLCompiler:413 - "/home/ise/XIlinxShare/Digital-Clock/DigitalClock/DigitalClock.v" Line 104: Result of 5-bit expression is truncated to fit in 4-bit target.
-WARNING:HDLCompiler:413 - "/home/ise/XIlinxShare/Digital-Clock/DigitalClock/DigitalClock.v" Line 106: Result of 7-bit expression is truncated to fit in 6-bit target.
-ERROR:HDLCompiler:1401 - "/home/ise/XIlinxShare/Digital-Clock/DigitalClock/DigitalClock.v" Line 112: Signal IO_SSEG[7] in unit DigitalClock is connected to following multiple drivers:
-Driver 0: output signal IO_SSEG[7] of instance Flip-flop (IO_SSEG).
-Driver 1: output signal IO_SSEG[7] of instance Flip-flop (_i000149).
-Driver 0: output signal IO_SSEG[6] of instance Flip-flop (IO_SSEG).
-Driver 1: output signal IO_SSEG[6] of instance Flip-flop (_i000149).
-Driver 0: output signal IO_SSEG[5] of instance Flip-flop (IO_SSEG).
-Driver 1: output signal IO_SSEG[5] of instance Flip-flop (_i000149).
-Driver 0: output signal IO_SSEG[4] of instance Flip-flop (IO_SSEG).
-Driver 1: output signal IO_SSEG[4] of instance Flip-flop (_i000149).
-Driver 0: output signal IO_SSEG[3] of instance Flip-flop (IO_SSEG).
-Driver 1: output signal IO_SSEG[3] of instance Flip-flop (_i000149).
-Driver 0: output signal IO_SSEG[2] of instance Flip-flop (IO_SSEG).
-Driver 1: output signal IO_SSEG[2] of instance Flip-flop (_i000149).
-Driver 0: output signal IO_SSEG[1] of instance Flip-flop (IO_SSEG).
-Driver 1: output signal IO_SSEG[1] of instance Flip-flop (_i000149).
-Driver 0: output signal IO_SSEG[0] of instance Flip-flop (IO_SSEG).
-Driver 1: output signal IO_SSEG[0] of instance Flip-flop (_i000149).
-Driver 0: output signal IO_SSEGD[3] of instance Flip-flop (IO_SSEGD).
-Driver 1: output signal IO_SSEGD[3] of instance Flip-flop (_i000147).
-Driver 0: output signal IO_SSEGD[2] of instance Flip-flop (IO_SSEGD).
-Driver 1: output signal IO_SSEGD[2] of instance Flip-flop (_i000147).
-Driver 0: output signal IO_SSEGD[1] of instance Flip-flop (IO_SSEGD).
-Driver 1: output signal IO_SSEGD[1] of instance Flip-flop (_i000147).
-Driver 0: output signal IO_SSEGD[0] of instance Flip-flop (IO_SSEGD).
-Driver 1: output signal IO_SSEGD[0] of instance Flip-flop (_i000147).
-ERROR:HDLCompiler:1401 - "/home/ise/XIlinxShare/Digital-Clock/DigitalClock/DigitalClock.v" Line 81: Signal hourUpper[3] in unit DigitalClock is connected to following multiple drivers:
-Driver 0: output signal hourUpper[3] of instance Flip-flop (hourUpper).
-Driver 1: output signal hourUpper[3] of instance Flip-flop (_i000108).
-Driver 0: output signal hourUpper[2] of instance Flip-flop (hourUpper).
-Driver 1: output signal hourUpper[2] of instance Flip-flop (_i000108).
-Driver 0: output signal hourUpper[1] of instance Flip-flop (hourUpper).
-Driver 1: output signal hourUpper[1] of instance Flip-flop (_i000108).
-Driver 0: output signal hourUpper[0] of instance Flip-flop (hourUpper).
-Driver 1: output signal hourUpper[0] of instance Flip-flop (_i000108).
-Driver 0: output signal hourLower[3] of instance Flip-flop (hourLower).
-Driver 1: output signal hourLower[3] of instance Flip-flop (_i000110).
-Driver 0: output signal hourLower[2] of instance Flip-flop (hourLower).
-Driver 1: output signal hourLower[2] of instance Flip-flop (_i000110).
-Driver 0: output signal hourLower[1] of instance Flip-flop (hourLower).
-Driver 1: output signal hourLower[1] of instance Flip-flop (_i000110).
-Driver 0: output signal hourLower[0] of instance Flip-flop (hourLower).
-Driver 1: output signal hourLower[0] of instance Flip-flop (_i000110).
-Driver 0: output signal minuteUpper[3] of instance Flip-flop (minuteUpper).
-Driver 1: output signal minuteUpper[3] of instance Flip-flop (_i000112).
-Driver 0: output signal minuteUpper[2] of instance Flip-flop (minuteUpper).
-Driver 1: output signal minuteUpper[2] of instance Flip-flop (_i000112).
-Driver 0: output signal minuteUpper[1] of instance Flip-flop (minuteUpper).
-Driver 1: output signal minuteUpper[1] of instance Flip-flop (_i000112).
-Driver 0: output signal minuteUpper[0] of instance Flip-flop (minuteUpper).
-Driver 1: output signal minuteUpper[0] of instance Flip-flop (_i000112).
-Driver 0: output signal minuteLower[3] of instance Flip-flop (minuteLower).
-Driver 1: output signal minuteLower[3] of instance Flip-flop (_i000114).
-Driver 0: output signal minuteLower[2] of instance Flip-flop (minuteLower).
-Driver 1: output signal minuteLower[2] of instance Flip-flop (_i000114).
-Driver 0: output signal minuteLower[1] of instance Flip-flop (minuteLower).
-Driver 1: output signal minuteLower[1] of instance Flip-flop (_i000114).
-Driver 0: output signal minuteLower[0] of instance Flip-flop (minuteLower).
-Driver 1: output signal minuteLower[0] of instance Flip-flop (_i000114).
-Driver 0: output signal secondCounter[5] of instance Flip-flop (secondCounter).
-Driver 1: output signal secondCounter[5] of instance Flip-flop (_i000116).
-Driver 0: output signal secondCounter[4] of instance Flip-flop (secondCounter).
-Driver 1: output signal secondCounter[4] of instance Flip-flop (_i000116).
-Driver 0: output signal secondCounter[3] of instance Flip-flop (secondCounter).
-Driver 1: output signal secondCounter[3] of instance Flip-flop (_i000116).
-Driver 0: output signal secondCounter[2] of instance Flip-flop (secondCounter).
-Driver 1: output signal secondCounter[2] of instance Flip-flop (_i000116).
-Driver 0: output signal secondCounter[1] of instance Flip-flop (secondCounter).
-Driver 1: output signal secondCounter[1] of instance Flip-flop (_i000116).
-Driver 0: output signal secondCounter[0] of instance Flip-flop (secondCounter).
-Driver 1: output signal secondCounter[0] of instance Flip-flop (_i000116).
-Module DigitalClock remains a blackbox, due to errors in its contents
-WARNING:HDLCompiler:1499 - "/home/ise/XIlinxShare/Digital-Clock/DigitalClock/DigitalClock.v" Line 21: Empty module <DigitalClock> remains a black box.
+WARNING:HDLCompiler:751 - "/home/ise/XIlinxShare/Digital-Clock/DigitalClock/DigitalClock.v" Line 52: Redeclaration of ansi port secondCounter is not allowed
+ERROR:HDLCompiler:31 - "/home/ise/XIlinxShare/Digital-Clock/DigitalClock/DigitalClock.v" Line 52: <secondCounter> is already declared.
+INFO:HDLCompiler:1408 - "/home/ise/XIlinxShare/Digital-Clock/DigitalClock/DigitalClock.v" Line 29. secondCounter is declared here
+ERROR:HDLCompiler:598 - "/home/ise/XIlinxShare/Digital-Clock/DigitalClock/DigitalClock.v" Line 21: Module <DigitalClock> ignored due to previous errors.
+Verilog file /home/ise/XIlinxShare/Digital-Clock/DigitalClock/DigitalClock.v ignored due to errors
 --> 
 
 
-Total memory usage is 406624 kilobytes
+Total memory usage is 307724 kilobytes
 
 Number of errors   :    2 (   0 filtered)
-Number of warnings :    7 (   0 filtered)
+Number of warnings :    1 (   0 filtered)
 Number of infos    :    0 (   0 filtered)
 

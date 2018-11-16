@@ -56,4 +56,4 @@ NET	"IO_DSW<7>"		LOC = P67	|  PULLUP;
 #====================================================
 # Clock signal 
 NET "M_CLOCK" LOC = P123;
-
+NET "prob" LOC = P118;
